@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "garirrecon": {
+      "hosting": {
+        "reco-amy-irving": [
+          "garirrecon"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "garirrecon"
+  }
+}

@@ -1,0 +1,35 @@
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <app-sidebar></app-sidebar>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Page content-->
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+            <h3>Bienvenido a su menú de docente</h3>
+        </nav>
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 text-gray-800">Curso</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-2">
+                    <!-- small box -->
+                    <div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+                    
+                    <div class="card-body">
+                      <h5 class="card-title text-center">Crear curso</h5>
+                    </div>
+                    <div class="card-footer text-bg-primary border-success text-right">
+                        <a  class="btn btn-sm btn-primary " role="button" (click)="gocrearCurso()" target="_blank"><i class="fas fa-plus-circle"></i></a>
+                        
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
