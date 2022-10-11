@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UploadComponent } from './pages/upload/upload.component';
+import { UploadComponent } from './pages/docente/upload/upload.component';
 import { HomeComponent } from './pages/home/home.component';
-import { IdentificarComponent } from './pages/identificar/identificar.component';
-import { DeteccionComponent } from './pages/deteccion/deteccion.component';
-import { LoginComponent} from './pages/login/login.component';
-import { EvaluacionComponent } from './pages/evaluacion/evaluacion.component';
-import { Evaluacion3Component } from './pages/evaluacion3/evaluacion3.component';
-import { HomedocenteComponent } from './pages/homedocente/homedocente.component';
-import { RegistroComponent } from './pages/registro/registro.component';
-import { CursoComponent } from './pages/curso/curso.component';
+import { IdentificarComponent } from './pages/alumno/identificar/identificar.component';
+import { DeteccionComponent } from './pages/alumno/deteccion/deteccion.component';
+import { LoginComponent} from './pages/docente/login/login.component';
+import { EvaluacionComponent } from './pages/alumno/evaluacion/evaluacion.component';
+import { Evaluacion3Component } from './pages/alumno/evaluacion3/evaluacion3.component';
+import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.component';
+import { RegistroComponent } from './pages/docente/registro/registro.component';
+import { CursoComponent } from './pages/docente/curso/curso.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
