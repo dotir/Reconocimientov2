@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
+/* import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage"; */
 import { ImagenesModel } from '../models/imagenes.model';
 import { FileItems } from '../models/file.items';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ImagenesService {
 
-private CARPETA_IMAGENES = 'img';
+/* private CARPETA_IMAGENES = 'img';
 
 private imagenesCollection : AngularFirestoreCollection<ImagenesModel>
 
@@ -22,9 +22,9 @@ progress:any;
 
     this.imagenesCollection = db.collection<ImagenesModel>('imagenes');
 
-  }
+  } */
 
-
+/* 
   getImagenes():Observable<ImagenesModel[]> {
 
     return this.imagenesCollection.snapshotChanges().pipe(
@@ -43,17 +43,17 @@ progress:any;
 
     )
 
-  }
+  } */
 
   //ya capturo y con el id recibe la imagen para cargar
-  getImagen(id:any){
+/*   getImagen(id:any){
 
     return this.imagenesCollection.doc(id).valueChanges();
 
-  }
+  } */
 
   /* Sube la imagen al firebase */
-  cargarImagenesFirebase(imagen:FileItems, imagesData:ImagenesModel, codigoestudianteD:string){
+ /*  cargarImagenesFirebase(imagen:FileItems, imagesData:ImagenesModel, codigoestudianteD:string){
 
     const storage = getStorage();
 
@@ -95,8 +95,8 @@ progress:any;
 
 
   }
-
-  //guarda en la collecion la imagen
+ */
+/*   //guarda en la collecion la imagen
   async guardarImagen(imagen:{nombreImagen:string,Codigo:string, imgUrl:string}):Promise<any>{
 
 
@@ -111,10 +111,10 @@ progress:any;
     }
 
 
-  }
+  } */
 
 
-  public eliminarImagen(id:string, imagenNombre:string){
+  /* public eliminarImagen(id:string, imagenNombre:string){
 
     const storage = getStorage();
 
@@ -133,7 +133,7 @@ progress:any;
 
     return this.imagenesCollection.doc(id).delete();
     
-  }
+  } */
 
 
 }

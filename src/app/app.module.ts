@@ -11,9 +11,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import { DeteccionComponent } from './pages/alumno/deteccion/deteccion.component';
 import { LoginComponent } from './pages/docente/login/login.component';
-import { AngularFireModule } from '@angular/fire/compat';
+/* import { AngularFireModule } from '@angular/fire/compat'; */
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { environment } from '../environments/environment';
+/* import { environment } from '../environments/environment'; */
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './pages/docente/registro/registro.component';
 import { EvaluacionComponent } from './pages/alumno/evaluacion/evaluacion.component';
@@ -21,6 +21,7 @@ import { CursoComponent } from './pages/docente/curso/curso.component';
 import { Evaluacion3Component } from './pages/alumno/evaluacion3/evaluacion3.component';
 import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     CursoComponent,
     Evaluacion3Component,
     HomedocenteComponent,
-    SidebarComponent  
+    SidebarComponent,
+    FooterComponent  
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+/*     AngularFireModule.initializeApp(environment.firebase), */
     AngularFirestoreModule,
     ReactiveFormsModule
   ],

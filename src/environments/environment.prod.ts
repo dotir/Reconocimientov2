@@ -1,6 +1,7 @@
 export const environment = {
+  urlServer: 'http://localhost:3000',
   production: true,
-  firebase: {
+  /* firebase: {
     projectId: 'garirrecon',
     appId: '1:709430159116:web:49a762f5cca50edc674b29',
     databaseURL: 'https://garirrecon-default-rtdb.firebaseio.com',
@@ -10,5 +11,5 @@ export const environment = {
     authDomain: 'garirrecon.firebaseapp.com',
     messagingSenderId: '709430159116',
     measurementId: 'G-TYLGNFCE67',
-  }
+  } */
 };

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ImagenesService } from 'src/app/services/imagenes.service';
-
+/* import { ImagenesService } from 'src/app/services/imagenes.service';
+ */
 @Component({
   selector: 'app-deteccion',
   templateUrl: './deteccion.component.html',
@@ -13,8 +13,8 @@ export class DeteccionComponent implements OnInit {
   imgNombre:any;
   imgFoto:any;
 
-  constructor(private imagenesSvc:ImagenesService) { }
-
+/*   constructor(private imagenesSvc:ImagenesService) { }
+ */
   ngOnInit() {
 
     this.obtenerImg();
@@ -24,7 +24,7 @@ export class DeteccionComponent implements OnInit {
   //obtener datos imagen
   obtenerImg(){
 
-    this.idImagen = localStorage.getItem('id');
+    /* this.idImagen = localStorage.getItem('id');
     this.imagenesSvc.getImagen(this.idImagen).subscribe((res:any)=>{
 
         this.imagenData = res;
@@ -33,7 +33,7 @@ export class DeteccionComponent implements OnInit {
         this.imgFoto = this.imagenData.imgUrl;
      
 
-    })
+    }) */
 
   }
 

@@ -83,7 +83,7 @@ export class IdentificarComponent implements OnInit {
   //compara el video con la almacenada en la base de datos
   imagesLista() {
 
-    this.imagenesSvc.getImagenes().subscribe((res: any) => {
+    /* this.imagenesSvc.getImagenes().subscribe((res: any) => {
 
       this.imagenes = res;
 
@@ -98,7 +98,7 @@ export class IdentificarComponent implements OnInit {
 
 
 
-    })
+    }) */
 
 
   }
