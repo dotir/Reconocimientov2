@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Imagenes } from 'src/app/models/images-interface';
 import { alumno } from 'src/app/models/alumno';
+import { LocationStrategy } from '@angular/common';
 /* import { Sequential } from '@tensorflow/tfjs-node';
  */
 const URL = environment.urlServer;
@@ -20,19 +21,21 @@ const URL = environment.urlServer;
 })
 export class UploadComponent implements OnInit {
 
-  /*  imgElement = ''; */
   images = '';
   imgURL = '../../../assets/img/noimage.png';
   imagenes: any = [];
-  alumn:any=[];
-  /*   imagen: any; */
+  alumn: any = [];
+
   imagenesData: Imagenes[] = [];
-  alumnosData: alumno[]=[];
-  /*   imgProcess: any; */
-  btnActive = true;
+  alumnosData: alumno[] = [];
+
   imgProcess: any = [];
   file: any;
-  fotito='http://localhost:3000/uploads/amy.jpg';
+  fotito = '';
+  //fotos
+  nombre = '';
+  foto = '';
+  dni1 = '';
 
   @ViewChild('imagesList', { static: true }) imagesList!: ElementRef;
 
@@ -49,6 +52,14 @@ export class UploadComponent implements OnInit {
     this.mostrarImg()
   }
 
+
+  getDni(inputValue: String) {
+
+    this.http.get<any>(`${URL}/alumno/${inputValue}`).subscribe(res => {
+      this.nombre = res[0].Nombre;
+      this.foto = res[0].Foto;
+    })
+  }
 
 
   selectImage(event: any) {
@@ -71,8 +82,6 @@ export class UploadComponent implements OnInit {
 
 
       }
-
-      this.btnActive = false;
 
       /* var containerImage = document.createElement('div');
       var status = document.createElement('p');
@@ -152,9 +161,7 @@ export class UploadComponent implements OnInit {
 
 
   mostrarImg() {
-
-
-    this.http.get<any>(`${URL}/upload`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/alumnoscurso/1`).subscribe((res: alumno) => {
       this.imagenes = res;
       this.imagenesData = [];
       this.imagenes.forEach((element: alumno) => {
@@ -163,25 +170,18 @@ export class UploadComponent implements OnInit {
         })
       })
     })
-    /*     this.imagenesSvc.getImagenes().subscribe(res => {
-    
-          this.imagenesData = [];
-    
-          res.forEach((element: ImagenesModel) => {
-    
-            this.imagenesData.push({
-              ...element
-            })
-    
-          })
-    
-        }) */
-
   }
 
 
   onSubmit() {
 
+
+    /* this.nombre=''; */
+    /* this.foto=''; */
+    let formData = new FormData();
+    formData.append('file', this.images);
+    this.http.post<any>(`${URL}/file`, formData).subscribe(
+      res => { location.reload(); })
     /* Swal.fire({
       title: 'busqueda',
       input:'text'
@@ -315,8 +315,8 @@ export class UploadComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        console.log('id:'+id);
-        this.http.delete<any>(`${URL}/delete/${id}`).subscribe(res=>{
+        console.log('id:' + id);
+        this.http.delete<any>(`${URL}/delete/${id}`).subscribe(res => {
           location.reload();
         })
       }

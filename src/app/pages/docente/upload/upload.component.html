@@ -12,48 +12,50 @@
             <div class="col-md-5" style="position: relative;">
 
                 <div class="card">
-                    
+
                     <div class="card-header bg-secondary" #imageFile>Registro de alumnos</div>
-                    
+
                     <div class="card-body">
-                       
+
                         <!-- <img class="img-fluid" [src]="imgURL" class="card-img-top"> -->
                         <hr style="border-color:azure">
                         <form (ngSubmit)="onSubmit()">
-                            <div>Ingrese dni alumno</div><input type="text" name="fot1" id="fot1">
-                        <!-- <form (ngSubmit)="onSubmit()" [formGroup]="imagenesForm " > -->
+                            <div>Ingrese dni alumno</div><input #identificador type="number"  name="fot1" id="fot1">
+                            <!-- <form (ngSubmit)="onSubmit()" [formGroup]="imagenesForm " > -->
                             <div class="form-group">
                                 <!-- <input type="file" class="form-control-file" formControlName="imgFile" class="form-control-file"
                                     formControlName="imgFile" accept="image/*" (change)="selectImage($event)"> -->
-                                <button type="submit" class="btn btn-outline-secondary mt-3" data-toggle="modal" data-target="#exampleModal">Registrar</button>
+                                <button type="submit" type="button" (click)="getDni(identificador.value)"
+                                    class="btn btn-outline-secondary mt-3" data-toggle="modal"
+                                    data-target="#exampleModal">Registrar</button>
                             </div>
                         </form>
                     </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <img [src]="fotito"  width="100">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nombre del alumno</p>
+                                    <p>{{nombre}}</p>
+                                    <img src="'http://localhost:3000/'+{{foto}}" width="100">
+                                    <p>¿Es el alumno?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" (click)="onSubmit()"  >Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -75,10 +77,11 @@
                             <tbody>
                                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
                                 <tr *ngFor="let alumno of alumnosData">
-                                    <td><img [src]="alumno.Foto"  width="100" class="zoom"></td>
+                                    <td><img [src]="'http://localhost:3000/'+alumno.Foto" width="100" class="zoom"></td>
                                     <td>{{alumno.Nombre}}</td>
                                     <td>{{alumno.Apellido}}</td>
-                                    <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)" ><i class="fa fa-trash"></i> </button></td>
+                                    <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i
+                                                class="fa fa-trash"></i> </button></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -5,14 +5,18 @@
         <div class="col-4"></div>
         <div class="col-4" style="margin-top: 90px;">
 
-            <div class="card bg-dark" style="color: white">
+            <div class="card bg-secondary">
                 <div class="header text-center">
-                  Bienvenido {{imgNombre}}
+                    Bienvenido {{idUser}}
                 </div>
-                <img [src]="imgFoto" class="img-card-top">
-                <div class="card-body text-center">
-                    <button type="button" class="btn btn-danger" (click)="evaluacion()" >Entrar Evaluacion</button>
-                 
+                <img src="{{this.imagenUsuario}}" class="img-card-top">
+                <div class="card-body">
+                    <form action="">
+                  <!--   <form (ngSubmit)="accesoPassword()" class="text-center" #forma="ngForm"> -->
+                        <input class="form-control" type="password" placeholder="Ingrese su password">
+                        <button type="submit" class="btn btn-danger">Entrar Evaluacion</button>
+                        <button type="button" class="btn btn-secondary"(click)="volver()">Volver</button>
+                    </form>
                 </div>
             </div>
 
@@ -24,4 +28,3 @@
 
 
 </div>
-

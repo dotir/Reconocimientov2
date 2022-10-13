@@ -14,4 +14,7 @@ export class HomedocenteComponent implements OnInit {
   gocrearCurso(){
     location.href = '/curso';
   }
+  goRAlumno(){
+    location.href='/upload';
+  }
 }

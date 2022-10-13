@@ -1,7 +1,14 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as faceapi from 'face-api.js';
-import { ImagenesService } from 'src/app/services/imagenes.service';
 import { ProcessFaceService } from 'src/app/services/process-face.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
+/* import {ngForm} from '@angular/forms'; */
+import { environment } from 'src/environments/environment';
+import { alumno } from 'src/app/models/alumno';
+
+const URL = environment.urlServer;
 
 @Component({
   selector: 'app-identificar',
@@ -14,11 +21,13 @@ export class IdentificarComponent implements OnInit {
   @ViewChild('myCanvas', { static: true }) myCanvas!: ElementRef;
 
   imagenes: any[] = [];
+  alumnos: any = [];
+
 
   public context!: CanvasRenderingContext2D;
 
-  
-  constructor(private imagenesSvc: ImagenesService, private processSvc:ProcessFaceService) { }
+
+  constructor(private http: HttpClient, private router: Router, private processSvc: ProcessFaceService) { }
 
   ngOnInit(): void {
 
@@ -55,7 +64,7 @@ export class IdentificarComponent implements OnInit {
     const reDraw = async () => {
 
       this.context.drawImage(stream, 0, 0, 640, 480);
-
+      //1
       requestAnimationFrame(reDraw);
 
     }
@@ -63,18 +72,20 @@ export class IdentificarComponent implements OnInit {
 
     const processFace = async () => {
 
+      //aqui hace la deteccion
       const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceDescriptor()
-      
-        if (typeof detection === 'undefined') return;
 
-        this.processSvc.descriptor(detection);
+      if (typeof detection === 'undefined') return;
+
+      this.processSvc.descriptor(detection);
 
 
     }
     //cada 2 segundos detecta rostro
     setInterval(processFace, 2000);
+    //2
     requestAnimationFrame(reDraw);
 
   }
@@ -82,24 +93,16 @@ export class IdentificarComponent implements OnInit {
 
   //compara el video con la almacenada en la base de datos
   imagesLista() {
+    this.http.get<any>(`${URL}/upload`).subscribe((res: alumno) => {
+      this.alumnos = res;
 
-    /* this.imagenesSvc.getImagenes().subscribe((res: any) => {
-
-      this.imagenes = res;
-
-      this.imagenes.forEach((imagen: any) => {
-
+      this.alumnos.forEach((alumno: any) => {
         const imageElement = document.createElement('img');
-        imageElement.src = imagen.imgUrl;
-        imageElement.crossOrigin = '*';
-        this.processSvc.processFace(imageElement, imagen.id);
-
+        imageElement.src = `${URL}/${alumno.Foto}`;
+        imageElement.crossOrigin = 'anonymous';   
+        this.processSvc.processFace(imageElement, alumno.idAlumno);
       })
-
-
-
-    }) */
-
+    })
 
   }
 

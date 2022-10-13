@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-/* import { ImagenesService } from 'src/app/services/imagenes.service';
- */
+/* import {ngForm} from '@angular/forms'; */
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { environment } from 'src/environments/environment';
+
+const URL = environment.urlServer;
+
 @Component({
   selector: 'app-deteccion',
   templateUrl: './deteccion.component.html',
@@ -8,13 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeteccionComponent implements OnInit {
 
-  idImagen:any;
-  imagenData:any;
+  idUser:any;
+  image:any;
+  imagenUsuario:any;
   imgNombre:any;
   imgFoto:any;
 
-/*   constructor(private imagenesSvc:ImagenesService) { }
- */
+
+  usuario={
+    password:''
+  }
+
+  constructor(private UsuarioSvc:UsuarioService) { }
+
   ngOnInit() {
 
     this.obtenerImg();
@@ -24,16 +34,13 @@ export class DeteccionComponent implements OnInit {
   //obtener datos imagen
   obtenerImg(){
 
-    /* this.idImagen = localStorage.getItem('id');
-    this.imagenesSvc.getImagen(this.idImagen).subscribe((res:any)=>{
+    this.idUser = localStorage.getItem('id');
+    this.UsuarioSvc.usuarioData(this.idUser).subscribe(res=>{
 
-        this.imagenData = res;
+        this.image = res;
 
-        this.imgNombre = this.imagenData.nombreImagen;
-        this.imgFoto = this.imagenData.imgUrl;
-     
-
-    }) */
+        this.imagenUsuario = `${URL}/${this.image.Foto}`;
+    });
 
   }
 
