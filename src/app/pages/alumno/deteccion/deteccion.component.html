@@ -7,15 +7,15 @@
 
             <div class="card bg-secondary">
                 <div class="header text-center">
-                    Bienvenido {{idUser}}
+                    Bienvenido {{this.imgNombre}}
                 </div>
                 <img src="{{this.imagenUsuario}}" class="img-card-top">
-                <div class="card-body">
+                <div class="card-body" style="margin-top: 1rem;">
                     <form action="">
                   <!--   <form (ngSubmit)="accesoPassword()" class="text-center" #forma="ngForm"> -->
                         <input class="form-control" type="password" placeholder="Ingrese su password">
-                        <button type="submit" class="btn btn-danger">Entrar Evaluacion</button>
-                        <button type="button" class="btn btn-secondary"(click)="volver()">Volver</button>
+                        <button type="submit" class="btn btn-danger text-center" style="margin-top: 1rem; margin-left: 4rem;">Entrar Evaluacion</button>
+                        <button type="button" class="btn btn-primary text-center"(click)="volver()" style="margin-top: 1rem; margin-left: 2rem;">Volver</button>
                     </form>
                 </div>
             </div>

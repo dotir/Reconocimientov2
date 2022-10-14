@@ -38,6 +38,7 @@ export class DeteccionComponent implements OnInit {
     this.UsuarioSvc.usuarioData(this.idUser).subscribe(res=>{
 
         this.image = res;
+        this.imgNombre=this.image.Nombre;
 
         this.imagenUsuario = `${URL}/${this.image.Foto}`;
     });
