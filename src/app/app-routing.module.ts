@@ -6,10 +6,10 @@ import { IdentificarComponent } from './pages/alumno/identificar/identificar.com
 import { DeteccionComponent } from './pages/alumno/deteccion/deteccion.component';
 import { LoginComponent} from './pages/docente/login/login.component';
 import { EvaluacionComponent } from './pages/alumno/evaluacion/evaluacion.component';
-import { Evaluacion3Component } from './pages/alumno/evaluacion3/evaluacion3.component';
 import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.component';
 import { RegistroComponent } from './pages/docente/registro/registro.component';
 import { CursoComponent } from './pages/docente/curso/curso.component';
+import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
@@ -19,10 +19,9 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'registro', component:RegistroComponent},
   {path: 'evaluacion', component:EvaluacionComponent},
-  {path: 'evaluacion3', component:Evaluacion3Component},
   {path: 'menu', component:HomedocenteComponent},
   {path: 'curso', component:CursoComponent},
-
+  {path: 'evaluacionf', component:EvaluacionfComponent},
   {path:'', pathMatch:'full', redirectTo:'home'},
   {path:'**', pathMatch:'full', redirectTo:'home'}
   

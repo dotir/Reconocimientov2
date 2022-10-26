@@ -10,6 +10,7 @@ import { alumno } from 'src/app/models/alumno';
 
 const URL = environment.urlServer;
 
+
 @Component({
   selector: 'app-identificar',
   templateUrl: './identificar.component.html',
@@ -22,7 +23,7 @@ export class IdentificarComponent implements OnInit {
 
   imagenes: any[] = [];
   alumnos: any = [];
-
+  ContadorRecono=0;
 
   public context!: CanvasRenderingContext2D;
 
@@ -46,6 +47,8 @@ export class IdentificarComponent implements OnInit {
 
 
   main = async () => {
+
+    
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
 
@@ -77,8 +80,17 @@ export class IdentificarComponent implements OnInit {
         .withFaceLandmarks()
         .withFaceDescriptor()
 
-      if (typeof detection === 'undefined') return;
-
+      
+      if (typeof detection === 'undefined') {
+        this.ContadorRecono++;
+        console.log('contador '+ this.ContadorRecono);
+        if (this.ContadorRecono===10){
+          location.href = '/evaluacionf';
+          console.log('Entro a mas de 10');
+        }
+        return;
+      }
+      
       this.processSvc.descriptor(detection);
 
 

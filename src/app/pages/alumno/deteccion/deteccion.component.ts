@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 /* import {ngForm} from '@angular/forms'; */
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 const URL = environment.urlServer;
 
@@ -53,7 +54,14 @@ export class DeteccionComponent implements OnInit {
   }
 
   evaluacion(){
-    location.href = '/evaluacion3';
+    Swal.fire({
+
+      icon: 'success',
+      title: 'Ingreso correcto',
+      text: 'Ingreso correctamente a la evaluacion'
+    }).then(() => {
+      location.href = '/home';
+    })
   }
 
 }

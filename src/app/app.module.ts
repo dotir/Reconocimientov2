@@ -18,10 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './pages/docente/registro/registro.component';
 import { EvaluacionComponent } from './pages/alumno/evaluacion/evaluacion.component';
 import { CursoComponent } from './pages/docente/curso/curso.component';
-import { Evaluacion3Component } from './pages/alumno/evaluacion3/evaluacion3.component';
 import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +35,10 @@ import { FooterComponent } from './shared/footer/footer.component';
     RegistroComponent,
     EvaluacionComponent,
     CursoComponent,
-    Evaluacion3Component,
     HomedocenteComponent,
     SidebarComponent,
-    FooterComponent  
+    FooterComponent,
+    EvaluacionfComponent  
   ],
   imports: [
     BrowserModule,
