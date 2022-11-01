@@ -12,9 +12,9 @@ export class HomedocenteComponent implements OnInit {
   ngOnInit(): void {
   }
   gocrearCurso(){
-    location.href = '/curso';
+    location.href = '#/curso';
   }
   goRAlumno(){
-    location.href='/upload';
+    location.href='#/upload';
   }
 }

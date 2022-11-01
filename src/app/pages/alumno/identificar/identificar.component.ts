@@ -81,13 +81,14 @@ export class IdentificarComponent implements OnInit {
         .withFaceDescriptor()
 
       
-      if (typeof detection === 'undefined') {
-        this.ContadorRecono++;
-        console.log('contador '+ this.ContadorRecono);
-        if (this.ContadorRecono===10){
-          location.href = '/evaluacionf';
-          console.log('Entro a mas de 10');
-        }
+      if (typeof detection === 'undefined') 
+      {
+        // 
+        // console.log('contador '+ this.ContadorRecono);
+        // if (this.ContadorRecono===10){
+        //   location.href = '#/evaluacionf';
+        //   console.log('Entro a mas de 10');
+        // }
         return;
       }
       
@@ -97,6 +98,8 @@ export class IdentificarComponent implements OnInit {
     }
     //cada 2 segundos detecta rostro
     setInterval(processFace, 2000);
+    this.ContadorRecono++;
+    console.log('contador '+ this.ContadorRecono);
     //2
     requestAnimationFrame(reDraw);
 
@@ -105,13 +108,13 @@ export class IdentificarComponent implements OnInit {
 
   //compara el video con la almacenada en la base de datos
   imagesLista() {
-    this.http.get<any>(`${URL}/upload`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/listaalumnos`).subscribe((res: alumno) => {
       this.alumnos = res;
 
       this.alumnos.forEach((alumno: any) => {
         const imageElement = document.createElement('img');
         imageElement.src = `${URL}/${alumno.Foto}`;
-        imageElement.crossOrigin = 'anonymous';   
+        imageElement.crossOrigin = '*';   
         this.processSvc.processFace(imageElement, alumno.idAlumno);
       })
     })

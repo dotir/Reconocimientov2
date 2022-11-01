@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,9 +12,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import { DeteccionComponent } from './pages/alumno/deteccion/deteccion.component';
 import { LoginComponent } from './pages/docente/login/login.component';
-/* import { AngularFireModule } from '@angular/fire/compat'; */
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-/* import { environment } from '../environments/environment'; */
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegistroComponent } from './pages/docente/registro/registro.component';
 import { EvaluacionComponent } from './pages/alumno/evaluacion/evaluacion.component';
@@ -46,8 +44,6 @@ import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.com
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-/*     AngularFireModule.initializeApp(environment.firebase), */
-    AngularFirestoreModule,
     ReactiveFormsModule
   ],
   providers: [],

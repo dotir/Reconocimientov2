@@ -50,6 +50,10 @@ export class ProcessFaceService {
       const bestMatch = this.faceMatcher.findBestMatch(detection.descriptor);
       this.idImage = bestMatch.label;
       this.passwordImg(this.idImage);
+      // localStorage.setItem('id',this.idImage);
+      // location.href = '#/deteccion';
+    }else{
+      
     }
   }
   passwordImg(id:string){

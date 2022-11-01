@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   }
 
   gomenuD(){
-    location.href = '/menu';
+    location.href = '#/menu';
   }
 
   goregistro(){
-    location.href = '/registro'
+    location.href = '#/registro'
   }
 
 }

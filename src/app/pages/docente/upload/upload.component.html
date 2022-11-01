@@ -46,7 +46,7 @@
                                 <div class="modal-body">
                                     <p>Nombre del alumno</p>
                                     <p>{{nombre}}</p>
-                                    <img src="http://localhost:3000/{{foto}}" width="100">
+                                    <img src="http://nodapi.recogarir.com/{{foto}}" width="100">
                                     <p>¿Es el alumno?</p>
                                 </div>
                                 <div class="modal-footer">
@@ -77,7 +77,7 @@
                             <tbody>
                                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
                                 <tr *ngFor="let alumno of alumnosData">
-                                    <td><img [src]="'http://localhost:3000/'+alumno.Foto" width="100" class="zoom"></td>
+                                    <td><img [src]="'http://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
                                     <td>{{alumno.Nombre}}</td>
                                     <td>{{alumno.Apellido}}</td>
                                     <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i

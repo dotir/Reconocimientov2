@@ -13,6 +13,6 @@ export class EvaluacionComponent implements OnInit {
   }
 
   goidentificar(){
-    location.href = '/identificar';
+    location.href = '#/identificar';
   }
 }

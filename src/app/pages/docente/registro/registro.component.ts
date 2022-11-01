@@ -12,9 +12,9 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
   }
   gologin(){
-    location.href = '/login';
+    location.href = '#/login';
   }
   gohome(){
-    location.href = '/home';
+    location.href = '#/home';
   }
 }

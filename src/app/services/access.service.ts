@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,8 +7,9 @@ export class AccessService {
 
 
   auth="autorizado";
+  num="1";
 
-  constructor() { }
+  constructor(private router:Router) { }
 
 
   accessoPassword(id: string){
@@ -18,7 +19,8 @@ export class AccessService {
 
       localStorage.setItem('id',id);
       localStorage.setItem('token',this.auth);
-      location.href='deteccion';
+      location.href = '#/deteccion';
+      // this.router.navigate(['deteccion']);
     }
   }
 }

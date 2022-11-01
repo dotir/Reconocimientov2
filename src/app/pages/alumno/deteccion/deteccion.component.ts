@@ -19,7 +19,6 @@ export class DeteccionComponent implements OnInit {
   imgNombre:any;
   imgFoto:any;
 
-
   usuario={
     password:''
   }
@@ -27,14 +26,12 @@ export class DeteccionComponent implements OnInit {
   constructor(private UsuarioSvc:UsuarioService) { }
 
   ngOnInit() {
-
     this.obtenerImg();
-
   }
 
   //obtener datos imagen
   obtenerImg(){
-
+   
     this.idUser = localStorage.getItem('id');
     this.UsuarioSvc.usuarioData(this.idUser).subscribe(res=>{
 
@@ -49,7 +46,7 @@ export class DeteccionComponent implements OnInit {
   volver(){
 
     localStorage.removeItem('id');
-    location.href = '/identificar';
+    location.href = '#/identificar';
 
   }
 
@@ -60,7 +57,7 @@ export class DeteccionComponent implements OnInit {
       title: 'Ingreso correcto',
       text: 'Ingreso correctamente a la evaluacion'
     }).then(() => {
-      location.href = '/home';
+      location.href = '#/home';
     })
   }
 

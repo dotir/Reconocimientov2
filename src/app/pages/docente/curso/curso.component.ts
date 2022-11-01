@@ -12,6 +12,6 @@ export class CursoComponent implements OnInit {
   ngOnInit(): void {
   }
   goregistroC(){
-    location.href = '/menu';
+    location.href = '#/menu';
   }
 }
