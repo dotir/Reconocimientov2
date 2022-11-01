@@ -14,11 +14,11 @@ RUN npm run build -- --configuration production
 
 #Segunda etapa
 
-FROM nginx:1.17.1-alpine
+# FROM nginx:1.17.1-alpine
 
 
-RUN apt-get update && \ 
-    apt-get install -y certbot python-certbot-nginx 
+# RUN apt-get update && \
+#     apt-get install -y certbot python-certbot-nginx
 
 
-COPY --from=build-step /app/dist/reco-amy-irving /usr/share/nginx/html
+# COPY --from=build-step /app/dist/reco-amy-irving /usr/share/nginx/html
