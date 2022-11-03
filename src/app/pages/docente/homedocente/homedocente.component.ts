@@ -1,4 +1,6 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { docente } from 'src/app/models/docente';
 
 @Component({
   selector: 'app-homedocente',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomedocenteComponent implements OnInit {
 
+  NombreDocente:any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.NombreDocente= JSON.parse(localStorage.getItem('id')!);
+    console.log(this.NombreDocente);
   }
   gocrearCurso(){
     location.href = '#/curso';
