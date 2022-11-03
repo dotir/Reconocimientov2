@@ -1,42 +1,33 @@
-<div class="d-flex" id="wrapper">
+<div class="d-flex " >
   <!-- Page content wrapper-->
   <app-sidebar></app-sidebar>
-  <div id="page-content-wrapper">
     <!-- Page content-->
-
-    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
-      <h3>Bienvenido a crear Curso</h3>
-    </nav>
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between">
-      <h1 class="h3 mb-0 text-gray-800">Curso</h1><br/><br/><br/>
-    </div>
-    <div class="container-fluid" style="margin-right: 1024px"> 
-      <div class="row">
+    <div class="container col-md-4"> 
+      <nav style="text-align:center ;" class="bienvenido">
+        <h3>Bienvenido al registro de curso</h3>
+      </nav>
+      <div class="cold-md-4 container1 ">
         <form>
-          <div class="form-row" class="jumbotron">
+          <div class="form-row " class="jumbotron">
+                <!-- <h2>Registro Curso</h2> -->
             <div class="form-group">
-              <label for="inputCurso">Nombre del curso</label>
-              <input type="text" class="form-control" id="inputCurso" placeholder="curso">
+                  <label for="inputCurso">Nombre del curso</label>
+                  <input type="text" class="form-control" id="inputCurso" placeholder="curso">
             </div>
             <div class="form-group">
-              <label for="inputCodigo">Codigo</label>
-              <input type="text" class="form-control" id="inputCodigo" placeholder="codigo">
+                  <label for="inputCodigo">Codigo</label>
+                  <input type="text" class="form-control" id="inputCodigo" placeholder="codigo">
             </div>
-            <div class="form-group">
               <div class="form-group">
-                <label for="inputDescripcion">Descripcion</label>
-                <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion">
+                    <label for="inputDescripcion">Descripcion</label>
+                    <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion">
               </div>
-            </div>
-            <div class="col-auto">
-              <button style="margin-right: 10px" type="submit" class="btn btn-primary"
-                (click)="goregistroC()">Registrar</button>
-              <a class="btn btn-secondary" role="button" (click)="goregistroC()" target="_blank">cancelar</a>
-            </div>
+              <div >
+                  <button type="submit" class="btn btn-primary boton"(click)="goregistroC()">Registrar</button>
+                    <a class="btn btn-secondary" role="button" (click)="goregistroC()" target="_blank">Cancelar</a>
+              </div>
           </div>
         </form>
       </div>
     </div>
-  </div>
 </div>
