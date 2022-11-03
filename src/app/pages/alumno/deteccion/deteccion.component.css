@@ -1,0 +1,36 @@
+.botonn{
+    width:100%;
+    max-width:150px;
+    margin:auto;
+    display:block;
+    margin-top: 10px;
+}
+/* .container1{
+    margin-top: 150px;
+    margin-left: 25%;
+} */
+.tamcard{
+    width:100%;
+    height: 100%;
+    max-width:200px;
+    margin-left: 75px;
+}
+.container1{
+    margin-top: 50px;
+    text-align: center;
+}
+@media screen and (min-width:1080px) {
+    .container1{
+        width: 300px;
+        height: 250px;
+        margin-left: 40%;
+    }
+}
+@media screen and (min-width:1080px) {
+    .tamcard{
+        width:100%;
+        height: 400px;
+        max-width:200px;
+        margin-left: 5px;
+    }
+}

@@ -1,29 +1,25 @@
-<div class="container">
+<div class="container ">
 
     <div class="row">
 
-        <div class="col-4"></div>
-        <div class="col-4" style="margin-top: 90px;">
-
-            <div class="card bg-secondary">
-                <div class="header text-center">
+        <div class="cold-md-4 container1">
+            
+            <div class="card bg-secondary cold-md-4 tamcard" >
+                <div class="header text-center" style="margin-top: 10px;">
                     Bienvenido {{this.imgNombre}}
                 </div>
-                <img src="{{this.imagenUsuario}}" class="img-card-top">
-                <div class="card-body" style="margin-top: 1rem;">
+                <img src="{{this.imagenUsuario}}" class="img-card-top botonn">
+                <div class="card-body" >
                     <form (ngSubmit)="evaluacion()" class="text-center">
                   <!--   <form (ngSubmit)="accesoPassword()" class="text-center" #forma="ngForm"> -->
                         <!-- <input class="form-control" type="password" placeholder="Ingrese su password"> -->
-                        <button type="submit" class="btn btn-danger text-center">Entrar Evaluacion</button>
+                        <button type="submit" class=" text-center btn btn-danger ">Entrar Evaluacion</button>
                         <!-- <button type="button" class="btn btn-primary text-center"(click)="volver()" style="margin-top: 1rem; margin-left: 2rem;">Volver</button> -->
                     </form>
                 </div>
             </div>
 
         </div>
-        <div class="col-4"></div>
-
-
     </div>
 
 
