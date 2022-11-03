@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": [
-              "lodash","@tensorflow/tfjs-core"
+              "lodash","@tensorflow/tfjs-core","sweetalert2"
             ],
             "outputPath": "dist/reco-amy-irving",
             "index": "src/index.html",

@@ -1,11 +1,11 @@
+
+<!-- Sidebar-->
+<div class="d-flex">
+<app-sidebar></app-sidebar>
+<div style="text-align: center; margin-left: 10%;">
 <h1 style="text-align: center">Registro del Alumno</h1>
-<!-- <div style="text-align: center;">
-    <button class="btn btn-secondary">Logout</button>
-</div> -->
 <hr>
-
 <div style="text-align: center">
-
     <div class="container">
         <div class="row">
             <!-- Sube las imagenes de los rostros -->
@@ -76,7 +76,7 @@
                             </thead>
                             <tbody>
                                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
-                                <tr *ngFor="let alumno of alumnosData">
+                                <tr *ngFor="let alumno of alumnosData; let i = index"  [attr.data-index]="i">
                                     <td><img [src]="'http://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
                                     <td>{{alumno.Nombre}}</td>
                                     <td>{{alumno.Apellido}}</td>
@@ -92,4 +92,6 @@
         </div>
     </div>
 
+</div>
+</div>
 </div>

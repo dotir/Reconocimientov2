@@ -36,16 +36,13 @@ export class LoginComponent implements OnInit {
     }else{
     this.usuaServ.login(this.usuario,this.pass).subscribe(res=>{
       this.usuarios=res;
-          console.log(this.usuarios)
-          if (this.usuarios.length ===0) {
-            console.log('no tas registrado')
+          if (this.usuarios.length ==0) {
             swettalert.fire({
               icon: 'error',
               title: 'Error login.',
               text: 'Parece que no estas registrado o ingrese mal sus datos!',
             })
           } else {
-            console.log('bienvenido')
             swettalert.fire(
               'Bienvenido!',
               'Has click para continuar!',

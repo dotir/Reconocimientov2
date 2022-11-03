@@ -9,18 +9,18 @@ import { Location } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router,
-    private location: Location) { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
   gologin(){
-    location.href = '#/login';
+    this.router.navigate(['login']);
   }
 
   goevaluacion(){
-    location.href='#/evaluacion';
+
+    this.router.navigate(['evaluacion']);
   }
 
 }
