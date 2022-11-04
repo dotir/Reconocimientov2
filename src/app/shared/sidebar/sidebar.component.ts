@@ -19,6 +19,9 @@ export class SidebarComponent implements OnInit {
   godashbord(){
     location.href='#/dash';
   }
+  gomenu(){
+    location.href='#/menu';
+  }
   salir(){
 
     localStorage.removeItem('id');

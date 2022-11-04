@@ -12,24 +12,32 @@
             <div class="sidebar-brand-icon ">
                 <i class="fas fa-user-cog"></i>
             </div>
-            <div class="sidebar-brand-text "> Menu del docente </div>
+            <div class="sidebar-brand-text " (click)="gomenu()"> Menu del docente </div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <ul class="nav-item active">
-            <a class="nav-link" (click)=" godashbord()">
-                <i class="fas fa-book"></i>
-                <span> Curso </span></a>
-        </ul>
+        <div class="nav-item active btn-group" >
+            <ul class="nav-item active btn-group ">
+                <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-book"></i> Curso  </a>
+                    <!-- <a  type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >
+                        <i class="fas fa-book"></i>
+                        <span> Curso </span></a> -->
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Redes</a>
+                            <a class="dropdown-item" href="#">Dropdown link</a>
+                        </div> 
+            </ul>
+        </div>
         <hr class="sidebar-divider my-0">
-        <li class="nav-item active">
-          <a class="nav-link" (click)="goRAlumno()">
-              <i class="fas"></i>
-              <span> Registro Alumno </span></a>
-      </li>
+            <li class="nav-item active">
+            <a class="nav-link" (click)="goRAlumno()">
+                <i class="fas"></i>
+                <span> Registro Alumno </span></a>
+            </li>
       <hr class="sidebar-divider my-0">
         <li class="nav-item active">
           <a class="nav-link" (click)="salir()">

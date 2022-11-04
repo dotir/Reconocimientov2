@@ -51,6 +51,7 @@
   /* color de letra curso */
   .sidebar-dark .nav-item.active .nav-link {
     color: #fff;
+    font-size: 1.2rem;
   }
 
   
