@@ -10,6 +10,7 @@ import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.co
 import { RegistroComponent } from './pages/docente/registro/registro.component';
 import { CursoComponent } from './pages/docente/curso/curso.component';
 import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
+import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'menu', component:HomedocenteComponent},
   {path: 'curso', component:CursoComponent},
   {path: 'evaluacionf', component:EvaluacionfComponent},
+  {path: 'dash', component:DashbordcursoComponent},
   {path:'', pathMatch:'full', redirectTo:'/home'},
   {path:'**', pathMatch:'full', redirectTo:'/home'}
 

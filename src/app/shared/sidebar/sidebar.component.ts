@@ -13,6 +13,12 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goRAlumno(){
+    location.href='#/upload';
+  }
+  godashbord(){
+    location.href='#/dash';
+  }
   salir(){
 
     localStorage.removeItem('id');

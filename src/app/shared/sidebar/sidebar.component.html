@@ -1,4 +1,5 @@
-<div class="d-flex" id="wrapper" style="margin-right: 80%">
+
+<div class="d-flex col-auto col-md-4  px-0 min-vh-100" id="wrapper" style="margin-right: 80%">
     <!-- Sidebar-->
 
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar ">
@@ -19,10 +20,22 @@
 
         <!-- Nav Item - Dashboard -->
         <ul class="nav-item active">
-            <a class="nav-link">
+            <a class="nav-link" (click)=" godashbord()">
                 <i class="fas fa-book"></i>
                 <span> Curso </span></a>
         </ul>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="goRAlumno()">
+              <i class="fas"></i>
+              <span> Registro Alumno </span></a>
+      </li>
+      <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="salir()">
+              <i class="fas"></i>
+              <span> Crear Examen </span></a>
+      </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
           <a class="nav-link" (click)="salir()">

@@ -20,6 +20,7 @@ import { HomedocenteComponent } from './pages/docente/homedocente/homedocente.co
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
+import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.com
     HomedocenteComponent,
     SidebarComponent,
     FooterComponent,
-    EvaluacionfComponent  
+    EvaluacionfComponent,
+    DashbordcursoComponent  
   ],
   imports: [
     BrowserModule,

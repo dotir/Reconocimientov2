@@ -34,4 +34,7 @@ export class HomedocenteComponent implements OnInit {
   goRAlumno(){
     location.href='#/upload';
   }
+  godashbord(){
+    location.href='#/dash';
+  }
 }
