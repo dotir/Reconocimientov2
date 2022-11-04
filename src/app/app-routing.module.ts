@@ -24,12 +24,11 @@ const routes: Routes = [
   {path: 'evaluacionf', component:EvaluacionfComponent},
   {path:'', pathMatch:'full', redirectTo:'/home'},
   {path:'**', pathMatch:'full', redirectTo:'/home'}
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  // imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,97 +1,86 @@
-
 <!-- Sidebar-->
-<div class="d-flex">
-<app-sidebar></app-sidebar>
-<div style="text-align: center; margin-left: 10%;">
-<h1 style="text-align: center">Registro del Alumno</h1>
-<hr>
-<div style="text-align: center">
-    <div class="container">
+<div class="d-flex flex-row bd-highlight mb-3">
+  <app-sidebar></app-sidebar>
+  <div class="container-fluid">
+    <h1 style="text-align: center">Registro del Alumno</h1>
+    <hr>
+    <div style="text-align: center">
+      <div class="container">
         <div class="row">
-            <!-- Sube las imagenes de los rostros -->
-            <div class="col-md-5" style="position: relative;">
-
-                <div class="card">
-
-                    <div class="card-header bg-secondary" #imageFile>Registro de alumnos</div>
-
-                    <div class="card-body">
-
-                        <!-- <img class="img-fluid" [src]="imgURL" class="card-img-top"> -->
-                        <hr style="border-color:azure">
-                        <form (ngSubmit)="onSubmit()">
-                            <div>Ingrese dni alumno</div><input #identificador type="number"  name="fot1" id="fot1">
-                            <!-- <form (ngSubmit)="onSubmit()" [formGroup]="imagenesForm " > -->
-                            <div class="form-group">
-                                <!-- <input type="file" class="form-control-file" formControlName="imgFile" class="form-control-file"
-                                    formControlName="imgFile" accept="image/*" (change)="selectImage($event)"> -->
-                                <button type="submit" type="button" (click)="getDni(identificador.value)"
-                                    class="btn btn-outline-secondary mt-3" data-toggle="modal"
-                                    data-target="#exampleModal">Registrar</button>
-                            </div>
-                        </form>
+          <!-- Sube las imagenes de los rostros -->
+          <div class="col-md-5" style="position: relative;">
+            <div class="card">
+              <div class="card-header bg-secondary" #imageFile>Registro de alumnos</div>
+              <div class="card-body">
+                <hr style="border-color:azure">
+                <form (ngSubmit)="onSubmit()">
+                  <div>Ingrese dni alumno</div><input #identificador type="number" name="fot1" id="fot1">
+                  <div class="form-group">
+                    <button type="submit" type="button" (click)="getDni(identificador.value!)"
+                      class="btn btn-outline-secondary mt-3" data-toggle="modal"
+                      data-target="#exampleModal">Registrar</button>
+                  </div>
+                </form>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Consulta alumno</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Consulta alumno</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Nombre del alumno</p>
-                                    <p>{{nombre}}</p>
-                                    <img src="http://nodapi.recogarir.com/{{foto}}" width="100">
-                                    <p>¿Es el alumno?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary" (click)="onSubmit()"  >Save changes</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="modal-body">
+                      <p>Nombre del alumno</p>
+                      <p>{{nombre}}</p>
+                      <img src="http://nodapi.recogarir.com/{{foto!}}" width="100">
+                      <p>¿Es el alumno?</p>
                     </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" (click)="onSubmit()">Save changes</button>
+                    </div>
+                  </div>
                 </div>
-
+              </div>
             </div>
-            <!--  -->
-            <!-- Lista de los Rostros Registrados -->
-            <div class="col-md-7">
-                <div class="card">
-                    <div class="card text-white mb-3">
-                        <div class="card-header bg-secondary ">Alumnos Registrados</div>
-                        <table class="table table-hover ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- <td><div class="images-list" #imagesList ></div></td> -->
-                                <tr *ngFor="let alumno of alumnosData; let i = index"  [attr.data-index]="i">
-                                    <td><img [src]="'http://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
-                                    <td>{{alumno.Nombre}}</td>
-                                    <td>{{alumno.Apellido}}</td>
-                                    <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i
-                                                class="fa fa-trash"></i> </button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+          </div>
+          <!--  -->
+          <!-- Lista de los Rostros Registrados -->
+          <div class="col-md-7">
+            <div class="card">
+              <div class="card text-white mb-3">
+                <div class="card-header bg-secondary ">Alumnos Registrados</div>
+                <table class="table table-hover ">
+                  <thead>
+                    <tr>
+                      <th scope="col">Imagen</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <td><div class="images-list" #imagesList ></div></td> -->
+                    <tr *ngFor="let alumno of alumnosData; let i = index" [attr.data-index]="i">
+                      <td><img [src]="'http://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
+                      <td>{{alumno.Nombre}}</td>
+                      <td>{{alumno.Apellido}}</td>
+                      <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i
+                            class="fa fa-trash"></i> </button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <!--  -->
+          </div>
+          <!--  -->
         </div>
-    </div>
+      </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </div>

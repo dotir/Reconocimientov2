@@ -3,7 +3,6 @@ import * as faceapi from 'face-api.js';
 import { ImagenesModel } from 'src/app/models/imagenes.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { ImagenesService } from 'src/app/services/imagenes.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -40,13 +39,13 @@ export class UploadComponent implements OnInit {
   @ViewChild('imagesList', { static: true }) imagesList!: ElementRef;
 
   /*   imagenesForm = this.fb.group({
-  
+
       nombre: ['', [Validators.required]],
       imgFile: ['']
-  
+
     }) */
 
-  constructor(private http: HttpClient, private router: Router, private fb: FormBuilder, private renderer: Renderer2, private imagenesSvc: ImagenesService) { }
+  constructor(private http: HttpClient, private router: Router, private fb: FormBuilder, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.mostrarImg()
@@ -80,37 +79,7 @@ export class UploadComponent implements OnInit {
           archivo: this.file[0]
         } */
 
-
       }
-
-      /* var containerImage = document.createElement('div');
-      var status = document.createElement('p');
-      var icon = document.createElement('i');
-      var elementImage = document.createElement('img');
-
-
-      containerImage.classList.add('containerImage');
-
-      elementImage.crossOrigin = 'anonymous';
-
-      icon.classList.add('fa');
-      icon.classList.add('fa-3x');
-      icon.classList.add('fa-spinner');
-      icon.classList.add('fa-pulse');
-
-      status.classList.add('status');
-
-      status.appendChild(icon)
-
-      containerImage.appendChild(status);
-
-      this.imgProcess = elementImage;
-
-
-      this.renderer.appendChild(this.imageFile.nativeElement, containerImage);
-
-      this.processFace(this.imgProcess, containerImage); */
-
     }
 
   }
@@ -147,11 +116,11 @@ export class UploadComponent implements OnInit {
       imageContainer.querySelector('.status').innerText = 'Procesado';
       imageContainer.querySelector('.status').style.color = 'blue';
       /*       this.onSubmit();
-      
+
             setTimeout(() => {
               imageContainer.querySelector('.status').innerText = '';
-      
-      
+
+
             }, 3000); */
 
     }
@@ -185,7 +154,7 @@ export class UploadComponent implements OnInit {
     /* Swal.fire({
       title: 'busqueda',
       input:'text'
-      
+
     }).then((dni)=>{
       if(!dni) throw null;
 
@@ -201,7 +170,7 @@ export class UploadComponent implements OnInit {
 
 
 
-    /* 
+    /*
         let codigoestudiante = '';
      */
     /* let formData = new FormData();
@@ -250,13 +219,13 @@ export class UploadComponent implements OnInit {
           showCancelButton: true,
           confirmButtonText: 'Guardar',
           allowOutsideClick: false
-          
+
         }).then((result) => {
           if (result.isConfirmed && result.value) {
             let cargarImagenDatos: any = {
               nombreImagen: result.value
             }
-    
+
             Swal.fire({
               title: 'Ingrese el codigo Estudiante',
               input: 'text'
@@ -269,19 +238,19 @@ export class UploadComponent implements OnInit {
                     title: 'La imagen se cargo',
                     text: 'En breve aparecera la imagen cargada'
                     }).then((result) => {
-    
+
                       if (result) {
                         this.imgURL = '../../../assets/img/noimage.png';
                         this.imagenesForm.reset();
                       }
-    
-                    }) 
+
+                    })
                 }
             })
-    
-    
+
+
           } else {
-    
+
             if (!result.isConfirmed && !result.value) {
               location.reload();
             } else {
@@ -290,14 +259,14 @@ export class UploadComponent implements OnInit {
                 title: 'Error',
                 text: 'Debe llenar el nombre',
                 confirmButtonText: 'OK'
-    
+
               }).then((result) => {
                 this.imagenesForm.reset();
               })
             }
-    
+
           }
-    
+
         }) */
 
   }
@@ -321,12 +290,5 @@ export class UploadComponent implements OnInit {
         })
       }
     })
-
-
-
   }
-
-
-
-
 }

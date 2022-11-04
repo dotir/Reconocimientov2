@@ -2,29 +2,28 @@
   <!-- Page content wrapper-->
   <app-sidebar></app-sidebar>
     <!-- Page content-->
-    <div class="container col-md-4"> 
+    <div class="container col-md-4">
       <nav style="text-align:center ;" class="bienvenido">
         <h3>Bienvenido al registro de curso</h3>
       </nav>
       <div class="cold-md-4 container1 ">
         <form>
           <div class="form-row " class="jumbotron">
-                <!-- <h2>Registro Curso</h2> -->
             <div class="form-group">
                   <label for="inputCurso">Nombre del curso</label>
-                  <input type="text" class="form-control" id="inputCurso" placeholder="curso">
+                  <input type="text" class="form-control" placeholder="curso" [(ngModel)]="cursoNuevo.Nombre" [ngModelOptions]="{standalone: true}" >
             </div>
             <div class="form-group">
                   <label for="inputCodigo">Codigo</label>
-                  <input type="text" class="form-control" id="inputCodigo" placeholder="codigo">
+                  <input type="text" class="form-control" placeholder="codigo" [(ngModel)]="cursoNuevo.Codigo" [ngModelOptions]="{standalone: true}">
             </div>
               <div class="form-group">
                     <label for="inputDescripcion">Descripcion</label>
-                    <input type="text" class="form-control" id="inputDescripcion" placeholder="Descripcion">
+                    <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="cursoNuevo.Descripcion" [ngModelOptions]="{standalone: true}">
               </div>
               <div >
-                  <button type="submit" class="btn btn-primary boton"(click)="goregistroC()">Registrar</button>
-                    <a class="btn btn-secondary" role="button" (click)="goregistroC()" target="_blank">Cancelar</a>
+                  <button type="submit" class="btn btn-primary boton" (click)="goregistro()">Registrar</button>
+                    <a class="btn btn-secondary" role="button" (click)="atras()">Cancelar</a>
               </div>
           </div>
         </form>

@@ -21,9 +21,9 @@
                                     target="_blank"><i class="fas fa-plus-circle"></i></a>
                                     <hr>
                         <!-- small box -->
-                        <div class="card text-bg-primary mb-3" style="max-width: 16rem;">
+                        <div class="card text-bg-primary mb-3" style="max-width: 16rem;"  *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Matematica</h5>
+                                <h5 class="card-title text-center">{{curso.Nombre}}</h5>
                             </div>
                             <div class="card-footer text-bg-primary border-success text-right">
                                 <a class="btn btn-sm btn-primary " (click)="goRAlumno()" role="button"><i class="fas fa-pencil-square-o"></i></a>
