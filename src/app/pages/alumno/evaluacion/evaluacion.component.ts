@@ -14,7 +14,6 @@ export class EvaluacionComponent implements OnInit {
   }
 
   goidentificar(){
-    // location.href = '#/identificar';
     this.router.navigate(['identificar']);
   }
 }
