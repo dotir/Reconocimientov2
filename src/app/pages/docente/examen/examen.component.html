@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-md-4  container1">
+      <form >
+        <div class="form-row  " class="jumbotron">
+          <h2>Registro Examen</h2>
+          <div class="form-group">
+            <label  for="inputNombre">Nombre</label>
+            <input type="text" class="form-control" id="inputNombre" placeholder="nombre" [(ngModel)] ="examenNuevo.Nombre" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group">
+            <label for="inputApellido">Codigo</label>
+            <input type="text" class="form-control" id="inputApellido" placeholder="apellido" [(ngModel)]="examenNuevo.Codigo" [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Duracion</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Email" [(ngModel)]="examenNuevo.Duracion" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+          <div class="boton1">
+          <button type="submit" class="btn btn-primary boton" (click)="goCrear()">Registrar</button>
+          <a class="btn btn-secondary" role="button" (click)="gohome()" target="_blank">Cancelar</a>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

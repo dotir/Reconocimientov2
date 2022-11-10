@@ -21,6 +21,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
 import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
+import { ExamenComponent } from './pages/docente/examen/examen.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcu
     SidebarComponent,
     FooterComponent,
     EvaluacionfComponent,
-    DashbordcursoComponent  
+    DashbordcursoComponent,
+    ExamenComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcu
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

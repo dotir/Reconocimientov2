@@ -7,7 +7,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 /* import {ngForm} from '@angular/forms'; */
 import { environment } from 'src/environments/environment';
 import { alumno } from 'src/app/models/alumno';
-
+import { curso } from 'src/app/models/curso';
 const URL = environment.urlServer;
 
 
@@ -23,7 +23,7 @@ export class IdentificarComponent implements OnInit {
 
   imagenes: any[] = [];
   alumnos: any = [];
-  ContadorRecono=0;
+  cursoT:any;
 
   public context!: CanvasRenderingContext2D;
 
@@ -31,9 +31,9 @@ export class IdentificarComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router, private processSvc: ProcessFaceService) { }
 
   ngOnInit(): void {
-
+    this.cursoT=JSON.parse(localStorage.getItem('cursoe')!);
+    // console.log(this.cursoT);
   }
-
 
   deteccion() {
     this.main();
@@ -45,10 +45,9 @@ export class IdentificarComponent implements OnInit {
 
   }
 
-
   main = async () => {
 
-    
+
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
 
@@ -72,7 +71,6 @@ export class IdentificarComponent implements OnInit {
 
     }
 
-
     const processFace = async () => {
 
       //aqui hace la deteccion
@@ -80,27 +78,19 @@ export class IdentificarComponent implements OnInit {
         .withFaceLandmarks()
         .withFaceDescriptor()
 
-      
-      if (typeof detection === 'undefined') 
+
+      if (typeof detection === 'undefined')
       {
-        // 
-        // console.log('contador '+ this.ContadorRecono);
-        // if (this.ContadorRecono===10){
-        //   location.href = '#/evaluacionf';
-        //   console.log('Entro a mas de 10');
-        // }
         return;
       }
-      
+
       this.processSvc.descriptor(detection);
 
 
     }
     //cada 2 segundos detecta rostro
     setInterval(processFace, 2000);
-    this.ContadorRecono++;
-    console.log('contador '+ this.ContadorRecono);
-    //2
+
     requestAnimationFrame(reDraw);
 
   }
@@ -108,17 +98,21 @@ export class IdentificarComponent implements OnInit {
 
   //compara el video con la almacenada en la base de datos
   imagesLista() {
-    this.http.get<any>(`${URL}/listaalumnos`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/alumnoscurso/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}`).subscribe((res: alumno) => {
       this.alumnos = res;
 
       this.alumnos.forEach((alumno: any) => {
         const imageElement = document.createElement('img');
         imageElement.src = `${URL}/${alumno.Foto}`;
-        imageElement.crossOrigin = '*';   
+        imageElement.crossOrigin = '*';
         this.processSvc.processFace(imageElement, alumno.idAlumno);
       })
     })
+  }
 
+  salir(){
+    localStorage.removeItem('cursoe');
+    this.router.navigate(['evaluacion']);
   }
 
 

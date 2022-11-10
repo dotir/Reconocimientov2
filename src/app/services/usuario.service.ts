@@ -34,5 +34,9 @@ export class UsuarioService {
   insertarCurso(curso:any){
     return this.http.post(`${URL}/curso`,curso);
   }
+
+  entrarcurso(codigo:any){
+    return this.http.get<curso>(`${URL}/curso/curso/${codigo}`);
+  }
 }
 

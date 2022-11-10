@@ -12,6 +12,7 @@ export class ProcessFaceService {
   idImage: any;
   imageDescriptors: any = [];
   faceMatcher: any;
+  contador=0;
 
   constructor(private http:HttpClient,private router:Router, private acessSvc:AccessService) { }
 
@@ -24,13 +25,14 @@ export class ProcessFaceService {
     const detection = await faceapi.detectSingleFace(image, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks()
       .withFaceDescriptor()
-    if (typeof detection === 'undefined') return;
-
+    if (typeof detection === 'undefined') {
+      return;
+    }
     this.imageDescriptors.push({
       id: id,
       detection
     });
-    //aqui empieza a hacer la comparacion 
+    //aqui empieza a hacer la comparacion
     this.faceMatcher = new faceapi.FaceMatcher(this.imageDescriptors.map(
 
       (faceDescriptor: any) => (
@@ -47,13 +49,24 @@ export class ProcessFaceService {
   descriptor(detection:any){
 
     if(detection){
-      const bestMatch = this.faceMatcher.findBestMatch(detection.descriptor);
-      this.idImage = bestMatch.label;
-      this.passwordImg(this.idImage);
-      // localStorage.setItem('id',this.idImage);
-      // location.href = '#/deteccion';
+      try{
+        const bestMatch = this.faceMatcher.findBestMatch(detection.descriptor);
+        this.idImage = bestMatch.label;
+        this.passwordImg(this.idImage);
+        // localStorage.setItem('id',this.idImage);
+        location.href = '#/deteccion';
+      }catch(e){
+        this.contador++;
+        console.log(this.contador);
+        if(this.contador===10){
+          location.href='#/evaluacionf'
+          location.reload();
+        }
+        console.error(e);
+      }
+
     }else{
-      
+
     }
   }
   passwordImg(id:string){

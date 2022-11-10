@@ -1,6 +1,6 @@
 <!-- Sidebar-->
 <div class="d-flex flex-row bd-highlight mb-3">
-  <app-sidebar></app-sidebar>
+  <app-sidebar varaalumno="texto"></app-sidebar>
   <div class="container-fluid">
     <h1 style="text-align: center">Registro del Alumno</h1>
     <hr>
@@ -14,7 +14,7 @@
               <div class="card-body">
                 <hr style="border-color:azure">
                 <form (ngSubmit)="onSubmit()">
-                  <div>Ingrese dni alumno</div><input #identificador type="number" name="fot1" id="fot1">
+                  <div>Ingrese dni alumno</div><input #identificador type="number" name="fot1" id="fot1" [(ngModel)]="dni" >
                   <div class="form-group">
                     <button type="submit" type="button" (click)="getDni(identificador.value!)"
                       class="btn btn-outline-secondary mt-3" data-toggle="modal"
@@ -63,10 +63,10 @@
                       <th scope="col">Acciones</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody *ngIf="alumnosData">
                     <!-- <td><div class="images-list" #imagesList ></div></td> -->
                     <tr *ngFor="let alumno of alumnosData; let i = index" [attr.data-index]="i">
-                      <td><img [src]="'http://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
+                      <td><img [src]="'https://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
                       <td>{{alumno.Nombre}}</td>
                       <td>{{alumno.Apellido}}</td>
                       <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i

@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 import { Imagenes } from 'src/app/models/images-interface';
 import { alumno } from 'src/app/models/alumno';
 import { LocationStrategy } from '@angular/common';
+import { docente } from 'src/app/models/docente';
+import { curso } from 'src/app/models/curso';
 /* import { Sequential } from '@tensorflow/tfjs-node';
  */
 const URL = environment.urlServer;
@@ -34,7 +36,9 @@ export class UploadComponent implements OnInit {
   //fotos
   nombre = '';
   foto = '';
-  dni1 = '';
+  dni1:any;
+  dni:any;
+
 
   @ViewChild('imagesList', { static: true }) imagesList!: ElementRef;
 
@@ -53,10 +57,13 @@ export class UploadComponent implements OnInit {
 
 
   getDni(inputValue: String) {
-
     this.http.get<any>(`${URL}/alumno/${inputValue}`).subscribe(res => {
+
+      localStorage.removeItem('alumnoc');
+      localStorage.setItem('alumnoc',JSON.stringify(res))
       this.nombre = res[0].Nombre;
       this.foto = res[0].Foto;
+
     })
   }
 
@@ -71,13 +78,13 @@ export class UploadComponent implements OnInit {
       reader.onload = (event: any) => {
 
         this.imgURL = event.target.result;
-        /* this.imgElement = event.target.result; */
-        /* elementImage.src = `${this.imgElement}`; */
+        //  this.imgElement = event.target.result;
+        //  elementImage.src = `${this.imgElement}`;
 
         this.images = this.file;
-        /* this.imagen = {
-          archivo: this.file[0]
-        } */
+        // this.imagen = {
+        //   archivo: this.file[0]
+        // }
 
       }
     }
@@ -130,7 +137,9 @@ export class UploadComponent implements OnInit {
 
 
   mostrarImg() {
-    this.http.get<any>(`${URL}/alumnoscurso/1`).subscribe((res: alumno) => {
+    const id:docente = JSON.parse(localStorage.getItem('id')!);
+    const idc:curso = JSON.parse(localStorage.getItem('curso')!);
+    this.http.get<any>(`${URL}/alumnoscurso/${id.idDocente}/${idc.idCurso}`).subscribe((res: alumno) => {
       this.imagenes = res;
       this.imagenesData = [];
       this.imagenes.forEach((element: alumno) => {
@@ -144,130 +153,13 @@ export class UploadComponent implements OnInit {
 
   onSubmit() {
 
+    let idcurso = JSON.parse(localStorage.getItem('curso')!);
+    let idalumno = JSON.parse(localStorage.getItem('alumnoc')!);
 
-    /* this.nombre=''; */
-    /* this.foto=''; */
-    let formData = new FormData();
-    formData.append('file', this.images);
-    this.http.post<any>(`${URL}/file`, formData).subscribe(
-      res => { location.reload(); })
-    /* Swal.fire({
-      title: 'busqueda',
-      input:'text'
-
-    }).then((dni)=>{
-      if(!dni) throw null;
-
-      this.http.get<any>(`${URL}/alumno/${dni.value}`).subscribe(res=>{
-        console.log(res);
-        const nombre = res[0].Nombre;
-        const foto = res[0].Foto;
-        console.log(nombre);
-        console.log(foto);
-
+    this.http.get(`${URL}/agregaralumno/${idcurso.idCurso}/${idalumno[0].idAlumno}`).subscribe(
+      res => {
+        location.reload();
       })
-    }) */
-
-
-
-    /*
-        let codigoestudiante = '';
-     */
-    /* let formData = new FormData();
-    Swal.fire({
-      title: 'Introducir el password',
-      input: 'password',
-      inputAttributes: {
-        autocapitalize: 'off'
-      },
-      showCancelButton: true,
-      confirmButtonText: 'Guardar'
-    }).then((re) => {
-      if (re.isConfirmed && re.value) {
-        formData.append('file', this.images);
-        formData.append('password', re.value);
-        this.http.post<any>(`${URL}/file`, formData).subscribe(
-          res => {
-            Swal.fire({
-
-              icon: 'success',
-              title: 'Datos cargados correctamente',
-              text: 'La imagen y pass se subio correctamente'
-            }).then(() => {
-
-              if (res) {
-                location.reload();
-              }
-
-            })
-
-          })
-      } else {
-        Swal.fire('Error', 'Debe llenar el password', 'error');
-      }
-    });
- */
-
-
-
-    /*     Swal.fire({
-          title: 'Introducir el nombre de la imagen',
-          input: 'text',
-          inputAttributes: {
-            autocapitalize: 'off'
-          },
-          showCancelButton: true,
-          confirmButtonText: 'Guardar',
-          allowOutsideClick: false
-
-        }).then((result) => {
-          if (result.isConfirmed && result.value) {
-            let cargarImagenDatos: any = {
-              nombreImagen: result.value
-            }
-
-            Swal.fire({
-              title: 'Ingrese el codigo Estudiante',
-              input: 'text'
-            }).then((result) =>{
-                if(result){
-                  codigoestudiante=result.value
-                  this.imagenesSvc.cargarImagenesFirebase(this.imagen, cargarImagenDatos,codigoestudiante);
-                  Swal.fire({
-                    icon: 'success',
-                    title: 'La imagen se cargo',
-                    text: 'En breve aparecera la imagen cargada'
-                    }).then((result) => {
-
-                      if (result) {
-                        this.imgURL = '../../../assets/img/noimage.png';
-                        this.imagenesForm.reset();
-                      }
-
-                    })
-                }
-            })
-
-
-          } else {
-
-            if (!result.isConfirmed && !result.value) {
-              location.reload();
-            } else {
-              Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: 'Debe llenar el nombre',
-                confirmButtonText: 'OK'
-
-              }).then((result) => {
-                this.imagenesForm.reset();
-              })
-            }
-
-          }
-
-        }) */
 
   }
 

@@ -21,28 +21,25 @@
         <!-- Nav Item - Dashboard -->
         <div class="nav-item active btn-group" >
             <ul class="nav-item active btn-group ">
-                <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-book"></i> Curso  </a>
-                    <!-- <a  type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" >
-                        <i class="fas fa-book"></i>
-                        <span> Curso </span></a> -->
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Redes</a>
-                            <a class="dropdown-item" href="#">Dropdown link</a>
-                        </div> 
+                <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" >
+                    <i class="fas fa-book" ></i> Curso  </a>
+                        <div class="dropdown-menu" *ngIf="cursoData" >
+                          <div *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
+                            <a class="dropdown-item" (click)="godashbord(i)" >{{curso.Nombre}}</a></div>
+                        </div>
             </ul>
         </div>
         <hr class="sidebar-divider my-0">
             <li class="nav-item active">
-            <a class="nav-link" (click)="goRAlumno()">
+            <a class="nav-link" (click)="goRAlumno()" *ngIf="varaalumno">
                 <i class="fas"></i>
                 <span> Registro Alumno </span></a>
             </li>
       <hr class="sidebar-divider my-0">
         <li class="nav-item active">
-          <a class="nav-link" (click)="salir()">
+          <a class="nav-link" (click)="salir()" *ngIf="varaalumno">
               <i class="fas"></i>
-              <span> Crear Examen </span></a>
+              <span> Ver Ingresantes </span></a>
       </li>
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
