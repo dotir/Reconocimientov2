@@ -55,6 +55,7 @@ export class ProcessFaceService {
         this.passwordImg(this.idImage);
         // localStorage.setItem('id',this.idImage);
         location.href = '#/deteccion';
+        location.reload();
       }catch(e){
         this.contador++;
         console.log(this.contador);
