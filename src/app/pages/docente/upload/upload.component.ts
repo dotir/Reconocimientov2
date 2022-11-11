@@ -22,6 +22,7 @@ const URL = environment.urlServer;
 })
 export class UploadComponent implements OnInit {
 
+  urls=URL;
   images = '';
   imgURL = '../../../assets/img/noimage.png';
   imagenes: any = [];

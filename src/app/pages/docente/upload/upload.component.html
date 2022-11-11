@@ -66,7 +66,7 @@
                   <tbody *ngIf="alumnosData">
                     <!-- <td><div class="images-list" #imagesList ></div></td> -->
                     <tr *ngFor="let alumno of alumnosData; let i = index" [attr.data-index]="i">
-                      <td><img [src]="'https://nodapi.recogarir.com/'+ alumno.Foto" width="100" class="zoom"></td>
+                      <td><img [src]="urls +'/'+ alumno.Foto" width="100" class="zoom"></td>
                       <td>{{alumno.Nombre}}</td>
                       <td>{{alumno.Apellido}}</td>
                       <td><button class="btn btn-danger btn-sm" (click)="eliminar(alumno.idAlumno)"><i
