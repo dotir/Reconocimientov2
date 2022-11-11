@@ -19,8 +19,9 @@ export class AccessService {
 
       localStorage.setItem('id',id);
       localStorage.setItem('token',this.auth);
-      location.href = '#/deteccion';
-      // this.router.navigate(['deteccion']);
+      // location.href = '#/deteccion';
+      this.router.navigate(['deteccion']);
+      location.reload();
     }
   }
 }
