@@ -41,6 +41,9 @@ export class SidebarComponent implements OnInit {
   gomenu(){
     this.router.navigate(['menu']);
   }
+  veringresantes(){
+    this.router.navigate(['veringresantes']);
+  }
   salir(){
     localStorage.clear();
     // localStorage.removeItem('id');

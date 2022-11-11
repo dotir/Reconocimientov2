@@ -12,6 +12,7 @@ import { CursoComponent } from './pages/docente/curso/curso.component';
 import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.component';
 import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
 import { ExamenComponent } from './pages/docente/examen/examen.component';
+import { VeringresantesComponent} from './pages/docente/veringresantes/veringresantes.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'evaluacionf', component:EvaluacionfComponent},
   {path: 'dash', component:DashbordcursoComponent},
   {path:'examen',component:ExamenComponent},
+  {path:'veringresantes',component:VeringresantesComponent},
   {path:'', pathMatch:'full', redirectTo:'/home'},
   {path:'**', pathMatch:'full', redirectTo:'/home'}
 
