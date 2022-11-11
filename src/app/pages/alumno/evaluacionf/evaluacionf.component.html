@@ -12,8 +12,9 @@
                 <div class="card-body" style="margin-top: 1rem;">
                     <form  (ngSubmit)="obtieneEmail(correo,nombreu)" class="text-center">
                   <!--   <form (ngSubmit)="accesoPassword()" class="text-center" #forma="ngForm"> -->
-                        <input class="form-control" type="email" placeholder="Ingrese su nombre" #nombreu><br>
+                        <input class="form-control" type="email" placeholder="Ingrese su nombre completo" #nombreu><br>
                         <input class="form-control" type="email" placeholder="Ingrese su correo" #correo><br>
+                        <input class="form-control" type="email" placeholder="Ingrese su dni" #dni><br>
                         <button type="submit" class="btn btn-danger text-center">Aceptar</button>
                     </form>
                 </div>
