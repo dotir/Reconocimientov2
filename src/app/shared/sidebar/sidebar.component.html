@@ -23,10 +23,6 @@
             <ul class="nav-item active btn-group ">
                 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false" >
                     <i class="fas fa-book" ></i> Curso  </a>
-                        <div class="dropdown-menu" *ngIf="cursoData" >
-                          <div *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
-                            <a class="dropdown-item" (click)="godashbord(i)" >{{curso.Nombre}}</a></div>
-                        </div>
             </ul>
         </div>
         <hr class="sidebar-divider my-0">

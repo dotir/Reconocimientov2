@@ -135,11 +135,10 @@ export class UploadComponent implements OnInit {
 
   }
 
-
   mostrarImg() {
     const id:docente = JSON.parse(localStorage.getItem('id')!);
     const idc:curso = JSON.parse(localStorage.getItem('curso')!);
-    this.http.get<any>(`${URL}/alumnoscurso/${id.idDocente}/${idc.idCurso}`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/alumno/alumnoscurso/${id.idDocente}/${idc.idCurso}`).subscribe((res: alumno) => {
       this.imagenes = res;
       this.imagenesData = [];
       this.imagenes.forEach((element: alumno) => {
@@ -156,7 +155,7 @@ export class UploadComponent implements OnInit {
     let idcurso = JSON.parse(localStorage.getItem('curso')!);
     let idalumno = JSON.parse(localStorage.getItem('alumnoc')!);
 
-    this.http.get(`${URL}/agregaralumno/${idcurso.idCurso}/${idalumno[0].idAlumno}`).subscribe(
+    this.http.get(`${URL}/alumno/agregaralumno/${idcurso.idCurso}/${idalumno[0].idAlumno}`).subscribe(
       res => {
         location.reload();
       })
@@ -165,8 +164,6 @@ export class UploadComponent implements OnInit {
 
 
   eliminar(id: any) {
-
-
     Swal.fire({
       icon: 'question',
       title: 'Desea eliminar el registro?',
@@ -175,9 +172,9 @@ export class UploadComponent implements OnInit {
       allowOutsideClick: false
     }).then((result) => {
       if (result.isConfirmed) {
-
         console.log('id:' + id);
-        this.http.delete<any>(`${URL}/delete/${id}`).subscribe(res => {
+        this.http.delete<any>(`${URL}/alumno/${id}`).subscribe(res => {
+          console.log(res);
           location.reload();
         })
       }

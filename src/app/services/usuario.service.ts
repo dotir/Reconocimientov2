@@ -38,5 +38,13 @@ export class UsuarioService {
   entrarcurso(codigo:any){
     return this.http.get<curso>(`${URL}/curso/curso/${codigo}`);
   }
+
+  enviocorre(correo:any){
+    return this.http.post(`${URL}/correo`,correo);
+  }
+
+  traerdatosdocente(id:any){
+    return this.http.get<docente>(`${URL}/docente/${id}`);
+  }
 }
 

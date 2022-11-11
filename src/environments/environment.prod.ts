@@ -1,5 +1,5 @@
 export const environment = {
-  urlServer: 'http://nodapi.recogarir.com',
+  urlServer: 'https://nodapi.recogarir.com' || 'https://api.recogair.ml',
   production: true,
   /* firebase: {
     projectId: 'garirrecon',

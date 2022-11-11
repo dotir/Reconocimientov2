@@ -6,13 +6,14 @@
         <div class="col-4" style="margin-top: 90px;">
 
             <div class="card bg-secondary">
-                <div class="header text-center">
-                    Fallo en el reconocimiento Facial
+                <div class="header text-center" style="color: white;"><br>
+                    <strong>Fallo en el reconocimiento Facial</strong>
                 </div>
                 <div class="card-body" style="margin-top: 1rem;">
-                    <form  (ngSubmit)="obtieneEmail(correo)" class="text-center">
+                    <form  (ngSubmit)="obtieneEmail(correo,nombreu)" class="text-center">
                   <!--   <form (ngSubmit)="accesoPassword()" class="text-center" #forma="ngForm"> -->
-                        <input class="form-control" type="email" placeholder="Ingrese su correo" #correo>
+                        <input class="form-control" type="email" placeholder="Ingrese su nombre" #nombreu><br>
+                        <input class="form-control" type="email" placeholder="Ingrese su correo" #correo><br>
                         <button type="submit" class="btn btn-danger text-center">Aceptar</button>
                     </form>
                 </div>

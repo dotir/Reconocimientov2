@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { envio} from 'src/app/models/envio';
+import { UsuarioService } from 'src/app/services/usuario.service';
 const URL = environment.urlServer;
+import swettalert from 'sweetalert2';
+import { docente } from 'src/app/models/docente';
 
 @Component({
   selector: 'app-evaluacionf',
@@ -15,10 +18,13 @@ export class EvaluacionfComponent implements OnInit {
   correo:envio ={
     correo:'',
     NombreCurso:'',
-    idDocente:''
+    NombreAlumno:'',
+    idDocente:'',
+    correoDocente:''
   }
+  docentes: any = []
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private usuarioServ:UsuarioService) { }
 
   ngOnInit(): void {
     this.curso=JSON.parse(localStorage.getItem('cursoe')!);
@@ -26,22 +32,25 @@ export class EvaluacionfComponent implements OnInit {
     // console.log(this.curso[0].Docente_idDocente)
   }
 
-
-  obtieneEmail(correo:any){
-
+  obtieneEmail(correo:any,nombreu:any){
     this.correo.NombreCurso=this.curso[0].Nombre;
     this.correo.idDocente=this.curso[0].Docente_idDocente;
     this.correo.correo=correo.value;
+    this.correo.NombreAlumno=nombreu.value;
 
-    console.log(correo.value);
-    console.log(this.correo);
 
-    this.http.post(`${URL}/correo`,this.correo).subscribe(res=>{
-      console.log(res)
+    this.usuarioServ.traerdatosdocente(this.curso[0].Docente_idDocente).subscribe((res)=>{
+      this.docentes=res;
+      this.correo.correoDocente=this.docentes[0].Email;
     })
+    console.log(this.docentes[0])
+    console.log(this.correo.correoDocente)
+    this.usuarioServ.enviocorre(this.correo).subscribe(res=>{
+      swettalert.fire('Se comunico al docente del ingreso fallido').then(()=>{
+        location.reload();
+      });
 
-    location.reload();
-
+    })
   }
 
 }
