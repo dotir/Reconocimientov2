@@ -52,7 +52,6 @@ import { VeringresantesComponent } from './pages/docente/veringresantes/veringre
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
