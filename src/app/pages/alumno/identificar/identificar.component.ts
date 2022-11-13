@@ -98,7 +98,7 @@ export class IdentificarComponent implements OnInit {
 
   //compara el video con la almacenada en la base de datos
   imagesLista() {
-    this.http.get<any>(`${URL}/alumno/alumnoscurso/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/alumno/alumnoscursobusqueda/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}`).subscribe((res: alumno) => {
       this.alumnos = res;
 
       this.alumnos.forEach((alumno: any) => {
