@@ -13,6 +13,7 @@ import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.com
 import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
 import { ExamenComponent } from './pages/docente/examen/examen.component';
 import { VeringresantesComponent} from './pages/docente/veringresantes/veringresantes.component';
+import { PerfilComponent } from './pages/docente/perfil/perfil.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'dash', component:DashbordcursoComponent},
   {path:'examen',component:ExamenComponent},
   {path:'veringresantes',component:VeringresantesComponent},
+  {path:'perfil',component:PerfilComponent},
   {path:'', pathMatch:'full', redirectTo:'/home'},
   {path:'**', pathMatch:'full', redirectTo:'/home'}
 

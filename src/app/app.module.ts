@@ -23,6 +23,7 @@ import { EvaluacionfComponent } from './pages/alumno/evaluacionf/evaluacionf.com
 import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcurso.component';
 import { ExamenComponent } from './pages/docente/examen/examen.component';
 import { VeringresantesComponent } from './pages/docente/veringresantes/veringresantes.component';
+import { PerfilComponent } from './pages/docente/perfil/perfil.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { VeringresantesComponent } from './pages/docente/veringresantes/veringre
     DashbordcursoComponent,
     ExamenComponent,
     VeringresantesComponent,
+    PerfilComponent,
   ],
   imports: [
     BrowserModule,

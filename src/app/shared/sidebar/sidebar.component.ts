@@ -49,4 +49,7 @@ export class SidebarComponent implements OnInit {
     // localStorage.removeItem('id');
     this.router.navigate(['home']);
   }
+  goPerfil(){
+    this.router.navigate(['perfil']);
+  }
 }

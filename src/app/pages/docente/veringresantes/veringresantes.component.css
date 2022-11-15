@@ -1,3 +1,10 @@
 .tabla{
     margin-top: 50px;
+    text-align: center;
+}
+@media screen and (min-width:1080px) {
+    .tabla{
+        
+        margin-left: 30%;
+    }
 }

@@ -1,19 +1,19 @@
 <!-- Sidebar-->
 <div class="d-flex flex-row bd-highlight mb-3">
   <app-sidebar varaalumno="texto"></app-sidebar>
-  <div class="container-fluid">
+  <div class="container-fluid cold-md-4">
     <h1 style="text-align: center">Registro del Alumno</h1>
     <hr>
     <div style="text-align: center">
       <div class="container">
         <div class="row">
           <!-- Sube las imagenes de los rostros -->
-          <div class="col-md-5" style="position: relative;">
+          <div class="col cold-md-6" style="position: relative;">
             <div class="card">
-              <div class="card-header bg-secondary" #imageFile>Registro de alumnos</div>
+              <div class="card-header bg-secondary cold-md-4" #imageFile>Registro de alumnos</div>
               <div class="card-body">
                 <hr style="border-color:azure">
-                <form (ngSubmit)="onSubmit()">
+                <form (ngSubmit)="onSubmit()" class="cold-md-4">
                   <div>Ingrese dni alumno</div><input #identificador type="number" name="fot1" id="fot1" [(ngModel)]="dni" >
                   <div class="form-group">
                     <button type="submit" type="button" (click)="getDni(identificador.value!)"
@@ -50,11 +50,11 @@
           </div>
           <!--  -->
           <!-- Lista de los Rostros Registrados -->
-          <div class="col-md-7">
+          <div class="col cold-md-2">
             <div class="card">
-              <div class="card text-white mb-3">
+              <div class="card text-white cold-md-2">
                 <div class="card-header bg-secondary ">Alumnos Registrados</div>
-                <table class="table table-hover ">
+                <table class="table table-hover cold-md-2">
                   <thead>
                     <tr>
                       <th scope="col">Imagen</th>
