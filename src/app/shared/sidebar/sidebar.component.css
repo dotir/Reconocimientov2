@@ -14,7 +14,7 @@
     background-size: cover;
   }
   /* diseño de letra  menu del docente */
-  .sidebar .sidebar-brand {
+  /* .sidebar .sidebar-brand {
     height: 4.375rem;
     text-decoration: none;
     font-size: 1rem;
@@ -24,7 +24,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     z-index: 1;
-  }
+  } */
   
   @media screen and (min-width:1080px) {
     
@@ -43,15 +43,16 @@
       font-size: 2rem;
     }
   }
-  /* color de letra menu docente */
+  
+  /* color de letra menu docente *
   .sidebar-dark .sidebar-brand {
     color: #fff;
   }
   
-  /* color de letra curso */
+  /* color de letra curso *
   .sidebar-dark .nav-item.active .nav-link {
     color: #fff;
     font-size: 1.2rem;
-  }
+  } */
 
   

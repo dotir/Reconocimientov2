@@ -1,0 +1,23 @@
+.margen{
+    border-top: 10px;
+}
+.container2 {
+    display: grid;
+    padding: 1rem;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-rows: repeat(2, 180px);
+    font-size: 5rem;
+    
+  }
+
+  .container2 div {
+    background-color: rgb(52, 142, 245);
+    color: white;
+    padding: 1rem;
+    border-radius: 15px 15px 15px 15px;
+  }
+  .container2 a{
+
+    justify-self: end;
+  }

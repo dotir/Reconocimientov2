@@ -4,7 +4,7 @@
     <!-- Page content wrapper-->
     <div class="container-fluid">
         <!-- Page content-->
-        <div class="container">
+        <div class="container" style=" height:100%">
             <nav class="navbar">
                 <h3 *ngIf="NombreDocente.Nombre">Bienvenido a su menú de docente {{NombreDocente.Nombre}}</h3>
             </nav>
@@ -13,7 +13,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Curso</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Cursos</h1>
                 </div>
                 <div class="row">
                     <div class="col" *ngIf="cursoData">
@@ -21,14 +21,15 @@
                                     target="_blank"><i class="fas fa-plus-circle"></i></a>
                                     <hr>
                         <!-- small box -->
-                        <div  class="card text-bg-primary mb-3" style="max-width: 16rem;"  *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{curso.Nombre}}</h5>
-                            </div>
-                            <div class="card-footer text-bg-primary border-success text-right">
-                                <a class="btn btn-sm btn-primary " (click)="godashbord(i)" role="button"><i class="fas fa-pencil-square-o"></i></a>
-                            </div>
-                        </div>
+                        <main class="container2">
+                                <div  *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
+                                    
+                                        <h5 class="card-title text-center">{{curso.Nombre}}</h5>
+                                        <hr>
+                                        <a class="btn btn-sm btn-primary " (click)="godashbord(i)" role="button"><i class="fas fa-pencil-square-o"></i></a>
+                                    
+                                </div>
+                            </main>
                     </div>
                 </div>
             </div>
