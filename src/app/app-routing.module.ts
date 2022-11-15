@@ -14,6 +14,7 @@ import { DashbordcursoComponent } from './pages/docente/dashbordcurso/dashbordcu
 import { ExamenComponent } from './pages/docente/examen/examen.component';
 import { VeringresantesComponent} from './pages/docente/veringresantes/veringresantes.component';
 import { PerfilComponent } from './pages/docente/perfil/perfil.component';
+import { DatoscursoComponent } from './pages/docente/datoscurso/datoscurso.component';
 const routes: Routes = [
 
   {path: 'home', component:HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'examen',component:ExamenComponent},
   {path:'veringresantes',component:VeringresantesComponent},
   {path:'perfil',component:PerfilComponent},
+  {path:'datoscurso',component:DatoscursoComponent},
   {path:'', pathMatch:'full', redirectTo:'/home'},
   {path:'**', pathMatch:'full', redirectTo:'/home'}
 

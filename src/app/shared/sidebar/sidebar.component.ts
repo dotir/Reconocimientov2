@@ -52,4 +52,7 @@ export class SidebarComponent implements OnInit {
   goPerfil(){
     this.router.navigate(['perfil']);
   }
+  goDatosCurso(){
+    this.router.navigate(['datoscurso']);
+  }
 }

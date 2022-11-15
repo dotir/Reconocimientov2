@@ -1,0 +1,31 @@
+<div class="d-flex">
+    <!-- Sidebar-->
+    <app-sidebar varaalumno="texto"></app-sidebar>
+    <div class="container col-md-4">
+        <nav style="text-align:center ;" class="bienvenido">
+          <h3>Datos del curso {{cursos.Nombre}}</h3>
+        </nav>
+        <div class="cold-md-4 container1 ">
+          <form>
+            <div class="form-row " class="jumbotron">
+              <div class="form-group">
+                    <label for="inputCurso">Nombre del curso</label>
+                    <input type="text" class="form-control" placeholder="curso"  >
+              </div>
+              <div class="form-group">
+                    <label for="inputCodigo">Codigo</label>
+                    <input type="text" class="form-control" placeholder="codigo">
+              </div>
+                <div class="form-group">
+                      <label for="inputDescripcion">Descripcion</label>
+                      <input type="text" class="form-control" placeholder="Descripcion">
+                </div>
+                <div >
+                    <button type="submit" class="btn btn-primary boton">Editar</button>
+                      <a class="btn btn-secondary" role="button" >Cancelar</a>
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>
