@@ -21,6 +21,10 @@
                     <label for="inputDescripcion">Descripcion</label>
                     <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="cursoNuevo.Descripcion" [ngModelOptions]="{standalone: true}">
               </div>
+              <div class="form-group">
+                <label for="inputDescripcion">Clave</label>
+                <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="cursoNuevo.Clave" [ngModelOptions]="{standalone: true}">
+              </div>
               <div >
                   <button type="submit" class="btn btn-primary boton" (click)="goregistro()">Registrar</button>
                     <a class="btn btn-secondary" role="button" (click)="atras()">Cancelar</a>

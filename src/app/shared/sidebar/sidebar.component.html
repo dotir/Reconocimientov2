@@ -1,4 +1,4 @@
-<!-- 
+<!--
 <div class="d-flex col-auto col-md-4  px-0 min-vh-100" id="wrapper" style="margin-right: 80%">
     <!- Sidebar--
 
@@ -52,16 +52,16 @@
 <!-- sidebar nuevo -->
 <div class="container-fluid ">
     <div class="row flex-nowrap" >
-        
+
         <nav class="  col-auto  px-sm-4 px-0 bg-gradient-primary"   id="sidenav" >
-            
+
             <div class=" nav d-flex flex-column  align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" (click)="gomenu()">
                     <i class="fa fa-home"></i> <span class="fs-5 d-none d-sm-inline" >Menu</span>
                 </a>
                 <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     <li>
-                        <a  class="nav-link px-0 align-middle text-white " (click)="goPerfil()">
+                        <a  class="nav-link px-0 align-middle text-white " (click)="goPerfil()" *ngIf="!varaalumno">
                             <i class="fas fa-user-cog"></i><span class="ms-1 d-none d-sm-inline">Perfil</span>
                         </a>
                     </li>

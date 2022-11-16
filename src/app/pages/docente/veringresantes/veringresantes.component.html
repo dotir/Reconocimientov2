@@ -14,11 +14,13 @@
                   <th scope="col">Estado</th>
                 </tr>
               </thead>
-              <tbody >
+              <tbody *ngIf="ingresantesData">
                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
-                <tr >
-                  <td>rjy</td>
-                  <td></td>
+                <tr *ngFor="let ingresante of ingresantesData; let i = index" [attr.data-index]="i">
+                  <td><img [src]="urls +'/'+ ingresante.Foto" width="100" class="zoom"></td>
+                  <td>{{ingresante.Nombre}}</td>
+                  <td>{{ingresante.Apellido}}</td>
+                  <td>{{ingresante.Estado}}</td>
                   <td></td>
                   <td>ingreso</td>
                 </tr>

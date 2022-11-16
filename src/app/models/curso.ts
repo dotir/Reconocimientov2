@@ -3,5 +3,6 @@ export interface curso{
   Nombre:string,
   Docente_idDocente:string,
   Descripcion:string,
-  Codigo:string
+  Codigo:string,
+  Clave?:string
 }

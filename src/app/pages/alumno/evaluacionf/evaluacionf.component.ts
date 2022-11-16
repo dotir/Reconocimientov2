@@ -23,50 +23,46 @@ export class EvaluacionfComponent implements OnInit {
     idDocente: '',
     correoDocente: ''
   }
-  docentes: any = []
+  docentes: any;
 
 
-  constructor(private http: HttpClient,private usuarioServ:UsuarioService,private router:Router) { }
+  constructor(private http: HttpClient, private usuarioServ: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.curso = JSON.parse(localStorage.getItem('cursoe')!);
-    // console.log(this.curso[0].idCurso)
-    // console.log(this.curso[0].Docente_idDocente)
   }
-  Enviar(){
+  Enviar() {
     localStorage.clear();
-    // localStorage.removeItem('id');
-    /* this.router.navigate(['home']); */
-    location.href='/home';
+    location.href = '/home';
   }
-  obtieneEmail(correo:any,nombreu:any){
-    this.correo.NombreCurso=this.curso[0].Nombre;
-    this.correo.idDocente=this.curso[0].Docente_idDocente;
-    this.correo.correo=correo.value;
-    this.correo.NombreAlumno=nombreu.value;
+  obtieneEmail(correo: any, nombreu: any) {
+    this.correo.NombreCurso = this.curso[0].Nombre;
+    this.correo.idDocente = this.curso[0].Docente_idDocente;
+    this.correo.correo = correo.value;
+    this.correo.NombreAlumno = nombreu.value;
 
 
-    this.usuarioServ.traerdatosdocente(this.curso[0].Docente_idDocente).subscribe((res)=>{
-      this.docentes=res;
-      this.correo.correoDocente=this.docentes[0].Email;
-    })
-    console.log(this.docentes[0])
-    console.log(this.correo.correoDocente)
-    this.usuarioServ.enviocorre(this.correo).subscribe(res=>{
-      swettalert.fire('Se comunico al docente del ingreso fallido').then(()=>{
-        // location.reload();
-      });
-
-    console.log('iddoecente: ' + this.curso[0].Docente_idDocente)
     this.usuarioServ.traerdatosdocente(this.curso[0].Docente_idDocente).subscribe((res) => {
       this.docentes = res;
-      this.correo.correoDocente = this.docentes[0].Email;
+      this.correo.correoDocente = this.docentes.Email;
       this.usuarioServ.enviocorre(this.correo).subscribe(res => {
         swettalert.fire('Se comunico al docente del ingreso fallido').then(() => {
-          location.reload();
+          // location.reload();
         });
+        this.usuarioServ.traerdatosdocente(this.curso[0].Docente_idDocente).subscribe((res) => {
+          this.docentes = res;
+          this.correo.correoDocente = this.docentes[0].Email;
+          this.usuarioServ.enviocorre(this.correo).subscribe(res => {
+            swettalert.fire('Se comunico al docente del ingreso fallido').then(() => {
+              location.reload();
+            });
+          })
+        })
+
       })
+
     })
+
   }
 
 }
