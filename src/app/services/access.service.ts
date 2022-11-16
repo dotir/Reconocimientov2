@@ -6,8 +6,7 @@ import {Router} from '@angular/router';
 export class AccessService {
 
 
-  auth="autorizado";
-  num="1";
+  // auth="autorizado";
 
   constructor(private router:Router) { }
 
@@ -18,7 +17,7 @@ export class AccessService {
     }else{
 
       localStorage.setItem('id',id);
-      localStorage.setItem('token',this.auth);
+      // localStorage.setItem('token',this.auth);
       // location.href = '#/deteccion';
       this.router.navigate(['deteccion']);
       location.reload();

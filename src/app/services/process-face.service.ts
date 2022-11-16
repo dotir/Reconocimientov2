@@ -12,9 +12,9 @@ export class ProcessFaceService {
   idImage: any;
   imageDescriptors: any = [];
   faceMatcher: any;
-  contador=0;
+  contador = 0;
 
-  constructor(private http:HttpClient,private router:Router, private acessSvc:AccessService) { }
+  constructor(private http: HttpClient, private router: Router, private acessSvc: AccessService) { }
 
   async processFace(image: any, id: string) {
 
@@ -26,6 +26,7 @@ export class ProcessFaceService {
       .withFaceLandmarks()
       .withFaceDescriptor()
     if (typeof detection === 'undefined') {
+      alert('Por favor no retiro el rostro de la camara');
       return;
     }
     this.imageDescriptors.push({
@@ -39,40 +40,46 @@ export class ProcessFaceService {
 
         new faceapi.LabeledFaceDescriptors(
 
-          (faceDescriptor.id).toString(),[faceDescriptor.detection.descriptor]
+          (faceDescriptor.id).toString(), [faceDescriptor.detection.descriptor]
 
         )
       )
     ))
   }
 
-  descriptor(detection:any){
+  descriptor(detection: any) {
 
-    if(detection){
-      try{
+
+    try {
+      if (detection) {
         const bestMatch = this.faceMatcher.findBestMatch(detection.descriptor);
         this.idImage = bestMatch.label;
-        this.passwordImg(this.idImage);
-        // localStorage.setItem('id',this.idImage);
-        location.href = '#/deteccion';
-        location.reload();
-      }catch(e){
-        this.contador++;
-        console.log(this.contador);
-        if(this.contador===10){
-          location.href='#/evaluacionf'
-          location.reload();
-        }
-        console.error(e);
+        this.imagencontrada(this.idImage);
+      } else {
+        console.log('no deteccion')
       }
-
-    }else{
-
+    } catch (e) {
+      // this.contador++;
+      // console.log(this.contador);
+      // if (this.contador === 10) {
+      //   location.href = '#/evaluacionf'
+      //   location.reload();
+      // }
+      console.error(e);
     }
-  }
-  passwordImg(id:string){
 
-    this.acessSvc.accessoPassword(id);
+
+  }
+  imagencontrada(id: string) {
+    // this.acessSvc.accessoPassword(id);
+    if(id === 'unknown'){
+        location.href = '#/evaluacionf'
+        location.reload();
+    }else{
+      console.log('dato recibido--->', id)
+      localStorage.setItem('id', id);
+      location.href = '/deteccion';
+    }
 
   }
 }

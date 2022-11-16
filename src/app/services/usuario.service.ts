@@ -14,6 +14,7 @@ const URL = environment.urlServer;
 export class UsuarioService {
 
   constructor(private http:HttpClient) { }
+  
   usuarioData(id:string){
 
     return this.http.get(`${URL}/imagen/${id}`)
