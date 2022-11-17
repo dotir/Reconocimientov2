@@ -59,12 +59,12 @@ export class ProcessFaceService {
         console.log('no deteccion')
       }
     } catch (e) {
-      // this.contador++;
-      // console.log(this.contador);
-      // if (this.contador === 10) {
-      //   location.href = '#/evaluacionf'
-      //   location.reload();
-      // }
+      this.contador++;
+      console.log(this.contador);
+      if (this.contador === 10) {
+        location.href = '#/evaluacionf'
+        location.reload();
+      }
       console.error(e);
     }
 
@@ -73,12 +73,13 @@ export class ProcessFaceService {
   imagencontrada(id: string) {
     // this.acessSvc.accessoPassword(id);
     if(id === 'unknown'){
-        location.href = '#/evaluacionf'
-        location.reload();
+        // location.href = '#/evaluacionf'
+        // location.reload();
     }else{
       console.log('dato recibido--->', id)
       localStorage.setItem('id', id);
-      location.href = '/deteccion';
+      location.href = '#/deteccion';
+      location.reload();
     }
 
   }

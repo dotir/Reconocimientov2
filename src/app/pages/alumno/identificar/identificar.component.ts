@@ -8,6 +8,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
 import { alumno } from 'src/app/models/alumno';
 import { curso } from 'src/app/models/curso';
+import Swal from 'sweetalert2'
 const URL = environment.urlServer;
 
 
@@ -24,6 +25,7 @@ export class IdentificarComponent implements OnInit {
   imagenes: any[] = [];
   alumnos: any = [];
   cursoT:any;
+  contador=0;
 
   public context!: CanvasRenderingContext2D;
 
@@ -81,6 +83,22 @@ export class IdentificarComponent implements OnInit {
 
       if (typeof detection === 'undefined')
       {
+        this.contador++;
+        console.log(this.contador);
+
+        if(this.contador===10){
+          this.router.navigate(['evaluacionf']);
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se detecto rostro!'
+          })
+          if(this.contador===11){
+            location.reload();
+          }
+
+        }
         return;
       }
 
@@ -98,9 +116,10 @@ export class IdentificarComponent implements OnInit {
 
   //compara el video con la almacenada en la base de datos
   imagesLista() {
+    console.log(this.cursoT[0]);
     this.http.get<any>(`${URL}/alumno/alumnoscursobusqueda/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}`).subscribe((res: alumno) => {
       this.alumnos = res;
-
+      console.log(res)
       this.alumnos.forEach((alumno: any) => {
         const imageElement = document.createElement('img');
         imageElement.src = `${URL}/${alumno.Foto}`;
