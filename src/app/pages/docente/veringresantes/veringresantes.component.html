@@ -5,7 +5,7 @@
     <div class="card">
       <div class="card text-white mb-3">
         <div class="card-header bg-secondary ">Alumnos Ingresantes</div>
-            <table class="table table-hover">
+            <table class="table table-hover reducir">
               <thead>
                 <tr>
                   <th scope="col">Imagen</th>
@@ -18,7 +18,7 @@
               <tbody *ngIf="ingresantesData">
                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
                 <tr *ngFor="let ingresante of ingresantesData; let i = index" [attr.data-index]="i">
-                  <td><img [src]="urls +'/'+ ingresante.Foto" width="100" class="zoom"></td>
+                  <td><img class="imagen" [src]="urls +'/'+ ingresante.Foto"></td>
                   <td>{{ingresante.Nombre}}</td>
                   <td>{{ingresante.Apellido}}</td>
                   <td>{{ingresante.dni}}</td>

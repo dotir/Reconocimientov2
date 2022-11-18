@@ -2,9 +2,27 @@
     margin-top: 50px;
     text-align: center;
 }
+.imagen{
+  width: 100px;
+}
 @media screen and (min-width:1080px) {
     .tabla{
-        
+
         margin-left: 30%;
     }
+}
+
+@media screen and (max-width:500px) {
+    .tabla{
+        width: 320px;
+        font-size: small;
+    }
+    .reducir{
+      width: 320px;
+      font-size: xx-small;
+    }
+    .imagen{
+      width: 50px;
+    }
+
 }

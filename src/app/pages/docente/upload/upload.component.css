@@ -1,0 +1,30 @@
+.imagen{
+  width: 100px;
+}
+.tabla{
+  margin-top: 50px;
+  text-align: center;
+}
+
+@media screen and (max-width:500px) {
+  .tabla{
+      margin-top: 0px;
+      width: 300px;
+      font-size: small;
+  }
+  .reducir{
+    width: 320px;
+    font-size: xx-small;
+  }
+  .imagen{
+    width: 50px;
+  }
+  .quitarbordetop{
+    margin-top: 0px;
+  }
+  .quitarmargen{
+    margin-left: 0px;
+    padding: 0px 0px;
+  }
+
+}
