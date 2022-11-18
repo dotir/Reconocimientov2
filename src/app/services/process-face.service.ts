@@ -18,7 +18,8 @@ export class ProcessFaceService {
   ingresa:ingresa={
     idalumno:'',
     idcurso:'',
-    Estado:''
+    Estado:'',
+    EstadoIngreso:''
   }
 
   idcurso:any;
