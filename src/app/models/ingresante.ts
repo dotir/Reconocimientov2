@@ -1,8 +1,7 @@
 export interface ingresante{
-  id?:string
   Foto:string
   Nombre:string
   Apellido:string
-  Curso:string
+  dni?:string
   Estado?:string
 }

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import * as faceapi from 'face-api.js';
 import { AccessService } from './access.service';
+import { UsuarioService } from './usuario.service';
+import { ingresa } from '../models/ingresa';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +15,15 @@ export class ProcessFaceService {
   imageDescriptors: any = [];
   faceMatcher: any;
   contador = 0;
+  ingresa:ingresa={
+    idalumno:'',
+    idcurso:'',
+    Estado:''
+  }
 
-  constructor(private http: HttpClient, private router: Router, private acessSvc: AccessService) { }
+  idcurso:any;
+
+  constructor(private http: HttpClient, private router: Router, private acessSvc: AccessService, private usuSvc:UsuarioService ) { }
 
   async processFace(image: any, id: string) {
 
@@ -77,6 +86,16 @@ export class ProcessFaceService {
         // location.reload();
     }else{
       console.log('dato recibido--->', id)
+      this.ingresa.idalumno=id;
+      this.idcurso = JSON.parse(localStorage.getItem('cursoe')!);
+      console.log(this.idcurso);
+      this.ingresa.idcurso=this.idcurso[0].idCurso;
+      this.ingresa.Estado='1';
+      console.log(this.ingresa);
+      this.usuSvc.insertaringresantes(this.ingresa).subscribe(()=>{
+        console.log('inserta correctamente');
+      })
+
       localStorage.setItem('id', id);
       location.href = '#/deteccion';
       location.reload();

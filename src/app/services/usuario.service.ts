@@ -59,6 +59,7 @@ export class UsuarioService {
   veringresantes(id:any){
     return this.http.get<ingresante>(`${URL}/ingresantes/${id}`);
   }
+  
   insertaringresantes(ingresantes:any){
     return this.http.post(`${URL}/ingresantes`,ingresantes);
   }

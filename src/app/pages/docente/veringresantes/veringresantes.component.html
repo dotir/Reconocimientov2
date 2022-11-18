@@ -11,6 +11,7 @@
                   <th scope="col">Imagen</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Apellido</th>
+                  <th scope="col">Dni</th>
                   <th scope="col">Estado</th>
                 </tr>
               </thead>
@@ -20,9 +21,8 @@
                   <td><img [src]="urls +'/'+ ingresante.Foto" width="100" class="zoom"></td>
                   <td>{{ingresante.Nombre}}</td>
                   <td>{{ingresante.Apellido}}</td>
+                  <td>{{ingresante.dni}}</td>
                   <td>{{ingresante.Estado}}</td>
-                  <td></td>
-                  <td>ingreso</td>
                 </tr>
               </tbody>
             </table>
