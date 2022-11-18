@@ -91,6 +91,7 @@ export class ProcessFaceService {
       console.log(this.idcurso);
       this.ingresa.idcurso=this.idcurso[0].idCurso;
       this.ingresa.Estado='1';
+      this.ingresa.EstadoIngreso='1';
       console.log(this.ingresa);
       this.usuSvc.insertaringresantes(this.ingresa).subscribe(()=>{
         console.log('inserta correctamente');
