@@ -5,30 +5,30 @@
         <div class="row">
         <div class="col-4"></div>
         <div class="col-md-4  container1">
-            <form >
+            <form (ngSubmit)="Actualizar()" >
             <div class="form-row  " class="jumbotron">
                 <h2>Perfil docente</h2>
                 <div class="form-group">
                 <label  for="inputNombre">Nombre</label>
-                <input type="text" class="form-control" id="inputNombre" placeholder="nombre" >
+                <input type="text" class="form-control" [(ngModel)]="pefdocente.Nombre"  name="Nombre" placeholder="nombre" >
                 </div>
                 <div class="form-group">
                 <label for="inputApellido">Apellido</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="apellido">
+                <input type="text" class="form-control" [(ngModel)]="pefdocente.Apellido" name="Apellido" placeholder="apellido">
                 </div>
                 <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email" >
+                    <input type="email" class="form-control" [(ngModel)]="pefdocente.Email" name="Email" placeholder="Email" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password" >
+                    <input type="password" class="form-control" [(ngModel)]="pefdocente.Password" name="Password" placeholder="Password" >
                 </div>
                 </div>
                 <div class="boton1">
                 <button type="submit" class="btn btn-primary boton" >Editar</button>
-                <a class="btn btn-secondary" role="button" target="_blank">Cancelar</a>
+                <!-- <a class="btn btn-secondary" role="button" target="_blank">Cancelar</a> -->
             </div>
             </div>
             </form>

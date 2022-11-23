@@ -1,38 +1,35 @@
 <div class="d-flex">
-    <!-- Sidebar-->
-    <app-sidebar></app-sidebar>
-    <!-- Page content wrapper-->
-    <div class="container-fluid">
-        <!-- Page content-->
-        <div class="container" style=" height:100%">
-            <nav class="navbar">
-                <h3 *ngIf="NombreDocente.Nombre">Bienvenido a su menú de docente {{NombreDocente.Nombre}}</h3>
-            </nav>
-
-            <div class="container">
-
-                <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Cursos</h1>
-                </div>
-                <div class="row">
-                    <div class="col" *ngIf="cursoData">
-                        <a class="btn btn-sm btn-primary " role="button" (click)="gocrearCurso()"
-                                    target="_blank"><i class="fas fa-plus-circle"></i></a>
-                                    <hr>
-                        <!-- small box -->
-                        <main class="container2">
-                                <div  *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
-                                    
-                                        <h5 class="card-title text-center">{{curso.Nombre}}</h5>
-                                        <hr>
-                                        <a class="btn btn-sm btn-primary " (click)="godashbord(i)" role="button"><i class="fas fa-pencil-square-o"></i></a>
-                                    
-                                </div>
-                            </main>
-                    </div>
-                </div>
-            </div>
+  <!-- Sidebar-->
+  <app-sidebar></app-sidebar>
+  <!-- Page content wrapper-->
+    <!-- Page content-->
+    <div class="container" style=" height:100%">
+      <nav class="navbar">
+        <h3 *ngIf="NombreDocente.Nombre">Bienvenido a su menú de docente {{NombreDocente.Nombre}}</h3>
+      </nav>
+      <div class="container">
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0 text-gray-800">Cursos</h1>
         </div>
+        <div class="row">
+          <div class="col" *ngIf="cursoData">
+            <a class="btn btn-sm btn-primary " role="button" (click)="gocrearCurso()" target="_blank"><i
+                class="fas fa-plus-circle"></i></a>
+            <hr>
+            <!-- small box -->
+            <main class="container2">
+              <div *ngFor="let curso of cursoData; let i = index" [attr.data-index]="i">
+
+                <h5 class="card-title text-center">{{curso.Nombre}}</h5>
+                <hr>
+                <a class="btn btn-sm btn-primary " (click)="godashbord(i)" role="button"><i
+                    class="fas fa-pencil-square-o"></i></a>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
     </div>
+
 </div>

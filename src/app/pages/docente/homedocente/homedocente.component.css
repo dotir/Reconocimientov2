@@ -8,7 +8,7 @@
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     grid-template-rows: repeat(2, 180px);
     font-size: 5rem;
-    
+
   }
 
   .container2 div {
@@ -20,4 +20,21 @@
   .container2 a{
 
     justify-self: end;
+  }
+
+  @media screen  and (max-width:500px) {
+    .container2{
+      padding-top: 0px;
+      font-size: 1rem;
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      grid-template-rows: repeat(2, 120px);
+    }
+    .container2 div{
+      margin-bottom: 0px;
+      width: 120px;
+      height: 120px;
+    }
+    .container2 h5{
+      font-size: small;
+    }
   }
