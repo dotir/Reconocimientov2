@@ -4,6 +4,7 @@
 .tabla{
   margin-top: 30px;
   text-align: center;
+  margin-left: 15px;
 }
 
 @media screen and (max-width:500px) {
