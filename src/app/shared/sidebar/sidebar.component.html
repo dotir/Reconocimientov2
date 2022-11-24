@@ -1,50 +1,40 @@
 
 <!-- sidebar nuevo -->
-<div class="container-fluid ">
+<div class="container-fluid col-auto px-0">
     <div class="row flex-nowrap" >
 
-        <nav class="  col-auto  px-sm-4 px-0 bg-gradient-primary"   id="sidenav" >
+        <nav class=" sidebar-nav col-auto  px-sm-4 px-0 bg-gradient-primary"   id="sidenav" >
 
-            <div class=" nav d-flex flex-column  align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" (click)="gomenu()">
-                    <i class="fa fa-home"></i> <span class="fs-5 d-none d-sm-inline" >Menu</span>
-                </a>
-                <ul class="nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                    <li>
-                        <a  class="nav-link px-0 align-middle text-white " (click)="goPerfil()" *ngIf="!varaalumno">
-                            <i class="fas fa-user-cog"></i><span class="ms-1 d-none d-sm-inline">Perfil</span>
+            <div class=" nav  flex-column  align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <ul class=" nav flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" >
+                    <li >
+                        <a class="d-flex nav-link px-0 align-middle text-white" (click)="gomenu()">
+                            <i class="fa fa-home" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline" >Menu</span>
                         </a>
                     </li>
-                    <li>
-                        <a  class="nav-link px-0 align-middle text-white " (click)="goDatosCurso()" *ngIf="varaalumno">
-                            <i class="fas fa-book"></i><span class="ms-1 d-none d-sm-inline">Datos</span>
+                    <li >
+                        <a  class="d-flex nav-link px-0 align-middle text-white " (click)="goPerfil()" *ngIf="!varaalumno">
+                            <i class="fas fa-user-cog" style="margin-top: 10px;margin-right: 10px;"></i><span class="fs-5 d-none d-sm-inline">Perfil</span>
                         </a>
                     </li>
-                   <!--  <hr class="sidebar-divider my-0">
-                    <li>
-                        <a  data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Curso</span> </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                            </li>
-                            <li>
-                                <a href="#" class="nav-link px-0 text-white"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                            </li>
-                        </ul>
-                    </li> -->
+                    <li >
+                        <a  class="d-flex nav-link px-0 align-middle text-white " (click)="goDatosCurso()" *ngIf="varaalumno">
+                            <i class="fas fa-book" style="margin-top: 10px;margin-right: 10px;"></i><span class="fs-5 d-none d-sm-inline">Datos</span>
+                        </a>
+                    </li>
+                    <!-- <hr class="sidebar-divider my-0"> -->
 
                     <li class="nav-item active">
-                        <a class="nav-link px-0 align-middle text-white" (click)="goRAlumno()" *ngIf="varaalumno">
-                            <i class="fa fa-list-alt"></i> <span class="ms-1 d-none d-sm-inline">Registro Alumno</span></a>
+                        <a class="d-flex nav-link px-0 align-middle text-white" (click)="goRAlumno()" *ngIf="varaalumno">
+                            <i class="fa fa-list-alt" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Registro Alumno</span></a>
                     </li>
-                    <li>
-                        <a data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white" (click)="veringresantes()" *ngIf="varaalumno">
-                            <i class="fa fa-flag-checkered"></i> <span class="ms-1 d-none d-sm-inline">Ingresantes</span></a>
+                    <li >
+                        <a class=" d-flex nav-link px-0 align-middle text-white" (click)="veringresantes()" *ngIf="varaalumno">
+                            <i class="fa fa-flag-checkered" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Ingresantes</span></a>
                     </li>
-                    <li>
-                        <a class="nav-link px-0 align-middle text-white"  (click)="salir()">
-                            <i class="fa fa-sign-out"></i> <span class="ms-1 d-none d-sm-inline">Salir</span> </a>
+                    <li >
+                        <a class="d-flex nav-link px-0 align-middle text-white"  (click)="salir()">
+                            <i class="fa fa-sign-out" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Salir</span> </a>
                     </li>
                     <hr class="sidebar-divider my-0">
                 </ul>

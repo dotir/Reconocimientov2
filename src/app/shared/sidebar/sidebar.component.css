@@ -13,6 +13,12 @@
     background-image: linear-gradient(180deg, #0676df 10%,   #4447f1 100%);
     background-size: cover;
   }
+    /* seleccion li */
+  .sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
   /* diseño de letra  menu del docente */
   /* .sidebar .sidebar-brand {
     height: 4.375rem;
