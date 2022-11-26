@@ -16,7 +16,8 @@ export class CursoComponent implements OnInit {
     Nombre:'',
     Docente_idDocente:'',
     Descripcion:'',
-    Codigo:''
+    Codigo:'',
+    Clave:''
   }
 
   constructor(private router:Router,private usuarioServ:UsuarioService) { }
