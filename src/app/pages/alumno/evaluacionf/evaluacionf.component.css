@@ -1,0 +1,26 @@
+@media screen and (max-width:500px) {
+  .card{
+    border-left: 0px;
+    min-width: 350px;
+  }
+  .cuadro{
+    min-width: 350px;
+  }
+  .div-col-4{
+    width: 0px;
+    height: 0px;
+  }
+}
+@media screen and (max-width:600px) {
+  .card{
+    border-left: 0px;
+    width: 350px;
+  }
+  .cuadro{
+    min-width: 350px;
+  }
+  .div-col-4{
+    width: 0px;
+    height: 0px;
+  }
+}
