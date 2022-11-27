@@ -54,7 +54,9 @@ export class EvaluacionfComponent implements OnInit {
           this.correo.correoDocente = this.docentes[0].Email;
           this.usuarioServ.enviocorre(this.correo).subscribe(res => {
             swettalert.fire('Se comunico al docente del ingreso fallido').then(() => {
-              location.reload();
+              localStorage.clear();
+              location.href = '/home';
+              // location.reload();
             });
           })
         })
