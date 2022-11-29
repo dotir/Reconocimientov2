@@ -55,7 +55,8 @@ export class IdentificarComponent implements OnInit {
 
     var video = await navigator.mediaDevices.getUserMedia({ video: true });
 
-    await faceapi.nets.tinyFaceDetector.loadFromUri('/assets/models');
+    // await faceapi.nets.tinyFaceDetector.loadFromUri('/assets/models');
+    await faceapi.nets.ssdMobilenetv1.loadFromUri('/assets/models');
     await faceapi.nets.faceLandmark68Net.loadFromUri('/assets/models');
     await faceapi.nets.faceRecognitionNet.loadFromUri('/assets/models');
 
@@ -76,7 +77,7 @@ export class IdentificarComponent implements OnInit {
     const processFace = async () => {
 
       //aqui hace la deteccion
-      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.TinyFaceDetectorOptions())
+      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.SsdMobilenetv1Options())
         .withFaceLandmarks()
         .withFaceDescriptor()
 
