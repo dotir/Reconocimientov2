@@ -4,7 +4,7 @@
 
 export const environment = {
 
-  urlServer: 'https://api.recogarir.com/',
+  urlServer: 'https://api.recogarir.com',
   /* firebase: {
     projectId: 'garirrecon',
     appId: '1:709430159116:web:49a762f5cca50edc674b29',
