@@ -35,14 +35,14 @@
       <div class="modal-body">
         <div class="card text-white mb-3">
           <div class="card-header bg-secondary">Camara de identificacion</div>
-          <video style="position: absolute; top: 0;visibility:hidden; left: 0;opacity: 0;" width="640" height="480"
-            autoplay muted #videoContainer></video>
+          <input type="text" placeholder="Ingrese su dni" #dni>
+          <video style="position: absolute; top: 0;visibility:hidden; left: 0;opacity: 0;" width="640" height="480" autoplay muted #videoContainer></video>
           <canvas width="640" height="480" autoplay class="js-canvas" #myCanvas></canvas><br>
 
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="deteccion() ">Detectar Rostro</button>
+        <button type="button" class="btn btn-danger" (click)="deteccion(dni) ">Detectar Rostro</button>
         <button type="button" class="btn btn-secondary" (click)="removeVideo()">Close</button>
 
       </div>

@@ -26,6 +26,7 @@ export class IdentificarComponent implements OnInit {
   alumnos: any = [];
   cursoT:any;
   contador=0;
+  numdni:any;
 
   public context!: CanvasRenderingContext2D;
 
@@ -37,8 +38,9 @@ export class IdentificarComponent implements OnInit {
     // console.log(this.cursoT);
   }
 
-  deteccion() {
-    this.main();
+  deteccion(dni:any) {
+    this.numdni=dni;
+    this.main;
   }
 
   removeVideo() {
@@ -48,8 +50,6 @@ export class IdentificarComponent implements OnInit {
   }
 
   main = async () => {
-
-
 
     this.context = this.myCanvas.nativeElement.getContext('2d');
 
@@ -118,7 +118,7 @@ export class IdentificarComponent implements OnInit {
   //compara el video con la almacenada en la base de datos
   imagesLista() {
     console.log(this.cursoT[0]);
-    this.http.get<any>(`${URL}/alumno/alumnoscursobusqueda/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}`).subscribe((res: alumno) => {
+    this.http.get<any>(`${URL}/alumno/alumnoscursobusqueda/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}/${this.numdni}`).subscribe((res: alumno) => {
       this.alumnos = res;
       console.log(res)
       this.alumnos.forEach((alumno: any) => {
