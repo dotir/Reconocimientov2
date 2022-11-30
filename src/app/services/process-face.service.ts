@@ -36,7 +36,7 @@ export class ProcessFaceService {
       .withFaceLandmarks()
       .withFaceDescriptor()
     if (typeof detection === 'undefined') {
-      alert('Por favor no retiro el rostro de la camara');
+      alert('Por favor no retire el rostro de la camara');
       return;
     }
     this.imageDescriptors.push({
@@ -71,7 +71,7 @@ export class ProcessFaceService {
     } catch (e) {
       this.contador++;
       console.log(this.contador);
-      if (this.contador === 10) {
+      if (this.contador === 2) {
         location.href = '#/evaluacionf'
         location.reload();
       }

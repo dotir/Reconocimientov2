@@ -24,30 +24,26 @@ export class IdentificarComponent implements OnInit {
 
   imagenes: any[] = [];
   alumnos: any = [];
-  cursoT:any;
-  contador=0;
-  numdni:any;
-
+  cursoT: any;
+  numdni: any;
+  contador = 0;
   public context!: CanvasRenderingContext2D;
-
 
   constructor(private http: HttpClient, private router: Router, private processSvc: ProcessFaceService) { }
 
   ngOnInit(): void {
-    this.cursoT=JSON.parse(localStorage.getItem('cursoe')!);
+    this.cursoT = JSON.parse(localStorage.getItem('cursoe')!);
     // console.log(this.cursoT);
   }
 
-  deteccion(dni:any) {
-    this.numdni=dni.value;
+  deteccion(dni: any) {
+    this.numdni = dni.value;
     console.log(dni.value);
     this.main();
   }
 
   removeVideo() {
-
     location.reload();
-
   }
 
   main = async () => {
@@ -83,45 +79,39 @@ export class IdentificarComponent implements OnInit {
         .withFaceDescriptor()
 
 
-      if (typeof detection === 'undefined')
-      {
+      if (typeof detection === 'undefined') {
         this.contador++;
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'No se detecto rostro!'
+        })
         console.log(this.contador);
-
-        if(this.contador===10){
+        if (this.contador === 2) {
           this.router.navigate(['evaluacionf']);
-        }else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'No se detecto rostro!'
-          })
-          if(this.contador===11){
-            location.reload();
-          }
-
+          location.href = '#/evaluacionf';
+          location.reload();
         }
         return;
+      }else{
+        this.processSvc.descriptor(detection);
       }
-
-      this.processSvc.descriptor(detection);
-
-
     }
-    //cada 2 segundos detecta rostro
-    setInterval(processFace, 2000);
 
+    //cada 2 segundos detecta rostro
+    if (this.contador === 2) {
+      location.href = '#/evaluacionf';
+      location.reload();
+    }
+    setInterval(processFace, 2000);
     requestAnimationFrame(reDraw);
 
   }
 
-
   //compara el video con la almacenada en la base de datos
   imagesLista() {
-    console.log(this.cursoT[0]);
     this.http.get<any>(`${URL}/alumno/alumnoscursobusqueda/${this.cursoT[0].idCurso}/${this.cursoT[0].Docente_idDocente}/${this.numdni}`).subscribe((res: alumno) => {
       this.alumnos = res;
-      console.log(res)
       this.alumnos.forEach((alumno: any) => {
         const imageElement = document.createElement('img');
         imageElement.src = `${URL}/${alumno.Foto}`;
@@ -131,7 +121,7 @@ export class IdentificarComponent implements OnInit {
     })
   }
 
-  salir(){
+  salir() {
     localStorage.removeItem('cursoe');
     this.router.navigate(['evaluacion']);
   }
