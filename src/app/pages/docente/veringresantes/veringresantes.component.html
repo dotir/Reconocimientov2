@@ -13,16 +13,19 @@
                   <th scope="col">Apellido</th>
                   <th scope="col">Dni</th>
                   <th scope="col">Estado</th>
+                  <th scope="col">Por clave</th>
                 </tr>
               </thead>
               <tbody *ngIf="ingresantesData">
                 <!-- <td><div class="images-list" #imagesList ></div></td> -->
                 <tr *ngFor="let ingresante of ingresantesData; let i = index" [attr.data-index]="i">
+                  <td hidden>{{ingresante.idAlumno}}</td>
                   <td><img class="imagen" [src]="urls +'/'+ ingresante.Foto"></td>
                   <td>{{ingresante.Nombre}}</td>
                   <td>{{ingresante.Apellido}}</td>
                   <td>{{ingresante.dni}}</td>
                   <td>{{ingresante.Estado}}</td>
+                  <td><button (click)="estadoxclave(ingresante.idAlumno)" ><i class="fa fa-reply" aria-hidden="true"></i></button></td>
                 </tr>
               </tbody>
             </table>

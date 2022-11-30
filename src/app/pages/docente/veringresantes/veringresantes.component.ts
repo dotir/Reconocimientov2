@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ingresante } from 'src/app/models/ingresante';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
+import Swal from 'sweetalert2';
 
 const URL = environment.urlServer;
 @Component({
@@ -29,6 +30,16 @@ export class VeringresantesComponent implements OnInit {
           ...element
         })
       })
+    })
+  }
+
+  estadoxclave(ingresante:any){
+    this.cursosid=JSON.parse(localStorage.getItem('curso')!);
+
+    this.ususv.estadoingresoporclave(ingresante,this.cursosid.idCurso).subscribe(()=>{
+      Swal.fire("Se cambio estado correctamente");
+    },(err)=>{
+      Swal.fire("Ocurrio un error");
     })
   }
 }

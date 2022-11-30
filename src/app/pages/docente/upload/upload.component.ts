@@ -166,6 +166,7 @@ export class UploadComponent implements OnInit {
 
 
   eliminar(id: any) {
+    let idcurso = JSON.parse(localStorage.getItem('curso')!);
     Swal.fire({
       icon: 'question',
       title: 'Desea eliminar el registro?',
@@ -175,7 +176,7 @@ export class UploadComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log('id:' + id);
-        this.http.delete<any>(`${URL}/alumno/${id}`).subscribe(res => {
+        this.http.delete<any>(`${URL}/alumno/${id}/${idcurso.idCurso}`).subscribe(res => {
           console.log(res);
           location.reload();
         })

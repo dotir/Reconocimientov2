@@ -1,4 +1,5 @@
 export interface ingresante{
+  idAlumno?:string
   Foto:string
   Nombre:string
   Apellido:string

@@ -52,6 +52,10 @@ export class UsuarioService {
     return this.http.post(`${URL}/correo`,correo);
   }
 
+  validarclave(codigo:any,clave:any){
+    return this.http.get<curso>(`${URL}/curso/clave/${codigo}/${clave}`);
+  }
+
   traerdatosdocente(id:any){
     return this.http.get<docente>(`${URL}/docente/${id}`);
   }
@@ -59,9 +63,13 @@ export class UsuarioService {
   veringresantes(id:any){
     return this.http.get<ingresante>(`${URL}/ingresantes/${id}`);
   }
-  
+
   insertaringresantes(ingresantes:any){
     return this.http.post(`${URL}/ingresantes`,ingresantes);
+  }
+
+  estadoingresoporclave(idingresante:any,idcurso:any){
+    return this.http.get(`${URL}/ingresantes/estadoclave/${idingresante}/${idcurso}`);
   }
 }
 

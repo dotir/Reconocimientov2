@@ -30,15 +30,31 @@ export class CursoComponent implements OnInit {
   goregistro(){
     this.cursoNuevo.Docente_idDocente=this.iddocente.idDocente;
 
-    this.usuarioServ.insertarCurso(this.cursoNuevo).subscribe(res=>{
+    if(this.cursoNuevo.Codigo==''){
       swettalert.fire(
-        'Registrado!',
-        'Has click para continuar!',
-        'success'
-      ).then(()=>{
-        this.router.navigate(['menu']);
-    })
+        'Formulario Vacio',
+        'Ingrese datos!',
+        'warning'
+      )
+    }else{
+      this.usuarioServ.insertarCurso(this.cursoNuevo).subscribe((res)=>{
+        swettalert.fire(
+          'Registrado!',
+          'Has click para continuar!',
+          'success'
+        ).then(()=>{
+          this.router.navigate(['menu']);
+      })
+
+     },error=>{
+      swettalert.fire(
+        'Error codigo curso ya registrado!',
+        'Cambia el codigo!',
+        'error'
+      )
      });
+    }
+
   }
 
   atras(){

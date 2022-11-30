@@ -7,6 +7,7 @@ const URL = environment.urlServer;
 import swettalert from 'sweetalert2';
 import { docente } from 'src/app/models/docente';
 import { Router } from '@angular/router';
+import { curso } from 'src/app/models/curso';
 
 @Component({
   selector: 'app-evaluacionf',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
 export class EvaluacionfComponent implements OnInit {
 
   curso: any;
+  cursos=[];
   correo: envio = {
     correo: '',
     NombreCurso: '',
@@ -54,9 +56,10 @@ export class EvaluacionfComponent implements OnInit {
           this.correo.correoDocente = this.docentes[0].Email;
           this.usuarioServ.enviocorre(this.correo).subscribe(res => {
             swettalert.fire('Se comunico al docente del ingreso fallido').then(() => {
-              localStorage.clear();
-              location.href = '/home';
-              // location.reload();
+              console.log('correcto')
+              //localStorage.clear();
+              //location.href = '/home';
+              //location.reload();
             });
           })
         })
@@ -65,6 +68,28 @@ export class EvaluacionfComponent implements OnInit {
 
     })
 
+  }
+
+  async ingresoxclave(){
+    const { value: password } = await swettalert.fire({
+      title: 'Ingrese la clave de acceso',
+      input: 'password',
+      inputPlaceholder: 'Ingrese la clave',
+    })
+
+    if (password) {
+      this.usuarioServ.validarclave(this.curso[0].Codigo,password).subscribe((res)=>{
+        const validador = JSON.stringify(res);
+        if(validador!='[]'){
+          swettalert.fire(`Ingreso correcto`)
+          location.href='#/home'
+        }
+        else{
+          swettalert.fire(`Clave Incorrecta`)
+        }
+      })
+      // swettalert.fire(`Clave: ${password}`)
+    }
   }
 
 }
