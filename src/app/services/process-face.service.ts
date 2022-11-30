@@ -28,11 +28,12 @@ export class ProcessFaceService {
 
   async processFace(image: any, id: string) {
 
-    await faceapi.nets.tinyFaceDetector.loadFromUri('/assets/models');
+    await faceapi.nets.ssdMobilenetv1.loadFromUri('/assets/models');
+    // await faceapi.nets.tinyFaceDetector.loadFromUri('/assets/models');
     await faceapi.nets.faceLandmark68Net.loadFromUri('/assets/models');
     await faceapi.nets.faceRecognitionNet.loadFromUri('/assets/models');
 
-    const detection = await faceapi.detectSingleFace(image, new faceapi.TinyFaceDetectorOptions())
+    const detection = await faceapi.detectSingleFace(image, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.8 }))
       .withFaceLandmarks()
       .withFaceDescriptor()
     if (typeof detection === 'undefined') {
