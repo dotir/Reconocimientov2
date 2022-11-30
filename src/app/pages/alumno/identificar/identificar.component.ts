@@ -39,8 +39,9 @@ export class IdentificarComponent implements OnInit {
   }
 
   deteccion(dni:any) {
-    this.numdni=dni;
-    this.main;
+    this.numdni=dni.value;
+    console.log(dni.value);
+    this.main();
   }
 
   removeVideo() {

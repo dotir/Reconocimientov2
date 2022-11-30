@@ -6,7 +6,7 @@
         <h3><i class="fa fa-video-camera" aria-hidden="true"></i> Identifiquese para el ingreso al curso {{cursoT[0].Nombre }}</h3>
 
         <hr class="my-4">
-
+        <input type="text" placeholder="Ingrese su dni" #dni>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
           Identificar
@@ -35,7 +35,6 @@
       <div class="modal-body">
         <div class="card text-white mb-3">
           <div class="card-header bg-secondary">Camara de identificacion</div>
-          <input type="text" placeholder="Ingrese su dni" #dni>
           <video style="position: absolute; top: 0;visibility:hidden; left: 0;opacity: 0;" width="640" height="480" autoplay muted #videoContainer></video>
           <canvas width="640" height="480" autoplay class="js-canvas" #myCanvas></canvas><br>
 
