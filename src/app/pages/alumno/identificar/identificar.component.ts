@@ -74,7 +74,7 @@ export class IdentificarComponent implements OnInit {
     const processFace = async () => {
 
       //aqui hace la deteccion
-      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.8 }))
+      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.6 }))
         .withFaceLandmarks()
         .withFaceDescriptor()
 
