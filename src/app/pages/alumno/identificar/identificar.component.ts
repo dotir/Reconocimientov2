@@ -87,7 +87,7 @@ export class IdentificarComponent implements OnInit {
           text: 'No se detecto rostro!'
         })
         console.log(this.contador);
-        if (this.contador === 2) {
+        if (this.contador === 5) {
           this.router.navigate(['evaluacionf']);
           location.href = '#/evaluacionf';
           location.reload();
@@ -99,7 +99,7 @@ export class IdentificarComponent implements OnInit {
     }
 
     //cada 2 segundos detecta rostro
-    if (this.contador === 2) {
+    if (this.contador === 5) {
       location.href = '#/evaluacionf';
       location.reload();
     }

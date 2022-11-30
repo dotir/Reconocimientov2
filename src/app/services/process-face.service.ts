@@ -72,7 +72,7 @@ export class ProcessFaceService {
     } catch (e) {
       this.contador++;
       console.log(this.contador);
-      if (this.contador === 2) {
+      if (this.contador === 5) {
         location.href = '#/evaluacionf'
         location.reload();
       }
