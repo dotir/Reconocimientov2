@@ -39,28 +39,27 @@ export class ProcessFaceService {
     if (typeof detection === 'undefined') {
       alert('Por favor no retire el rostro de la camara');
       return;
-    }
-    this.imageDescriptors.push({
-      id: id,
-      detection
-    });
-    //aqui empieza a hacer la comparacion
-    this.faceMatcher = new faceapi.FaceMatcher(this.imageDescriptors.map(
+    }else{
+      this.imageDescriptors.push({
+        id: id,
+        detection
+      });
+      //aqui empieza a hacer la comparacion
+      this.faceMatcher = new faceapi.FaceMatcher(this.imageDescriptors.map(
 
-      (faceDescriptor: any) => (
+        (faceDescriptor: any) => (
 
-        new faceapi.LabeledFaceDescriptors(
+          new faceapi.LabeledFaceDescriptors(
 
-          (faceDescriptor.id).toString(), [faceDescriptor.detection.descriptor]
+            (faceDescriptor.id).toString(), [faceDescriptor.detection.descriptor]
 
+          )
         )
-      )
-    ))
+      ))
+    }
   }
 
   descriptor(detection: any) {
-
-
     try {
       if (detection) {
         const bestMatch = this.faceMatcher.findBestMatch(detection.descriptor);
@@ -78,14 +77,13 @@ export class ProcessFaceService {
       }
       console.error(e);
     }
-
-
   }
   imagencontrada(id: string) {
     // this.acessSvc.accessoPassword(id);
     if(id === 'unknown'){
         // location.href = '#/evaluacionf'
         // location.reload();
+        return;
     }else{
       console.log('dato recibido--->', id)
       this.ingresa.idalumno=id;
