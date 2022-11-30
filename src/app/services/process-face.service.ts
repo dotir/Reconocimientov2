@@ -33,7 +33,7 @@ export class ProcessFaceService {
     await faceapi.nets.faceLandmark68Net.loadFromUri('/assets/models');
     await faceapi.nets.faceRecognitionNet.loadFromUri('/assets/models');
 
-    const detection = await faceapi.detectSingleFace(image, new faceapi.TinyFaceDetectorOptions({ inputSize: 320 }))
+    const detection = await faceapi.detectSingleFace(image, new faceapi.TinyFaceDetectorOptions())
       .withFaceLandmarks()
       .withFaceDescriptor()
     if (typeof detection === 'undefined') {

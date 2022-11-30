@@ -74,7 +74,7 @@ export class IdentificarComponent implements OnInit {
     const processFace = async () => {
 
       //aqui hace la deteccion
-      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.TinyFaceDetectorOptions({ inputSize: 320 }))
+      const detection = await faceapi.detectSingleFace(this.videoContainer.nativeElement, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks()
         .withFaceDescriptor()
 
