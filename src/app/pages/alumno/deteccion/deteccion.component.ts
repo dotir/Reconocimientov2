@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ingresa } from 'src/app/models/ingresa';
 /* import {ngForm} from '@angular/forms'; */
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { environment } from 'src/environments/environment';
@@ -22,12 +23,21 @@ export class DeteccionComponent implements OnInit {
   usuario={
     password:''
   }
+  ingresa:ingresa={
+    idalumno:'',
+    idcurso:'',
+    Estado:'',
+    EstadoIngreso:''
+  }
   idcurso:any;
 
   constructor(private UsuarioSvc:UsuarioService, private usuSvc:UsuarioService) { }
 
   ngOnInit() {
     this.idcurso = JSON.parse(localStorage.getItem('cursoe')!);
+
+    this.ingresa.idalumno=this.idcurso[0].idalumno;
+    this.ingresa.idcurso=this.idcurso[0].idalumno;
     this.obtenerImg();
   }
 
@@ -59,7 +69,7 @@ export class DeteccionComponent implements OnInit {
       title: 'Ingreso correcto',
       text: 'Ingreso correctamente a la evaluacion'
     }).then(() => {
-      this.usuSvc.insertaringresantes(this.idcurso).subscribe(()=>{
+      this.usuSvc.insertaringresantes(this.ingresa).subscribe(()=>{
         console.log('inserta correctamente');
         localStorage.removeItem('cursoe');
         localStorage.removeItem('id');
