@@ -34,17 +34,19 @@ export class DeteccionComponent implements OnInit {
   constructor(private UsuarioSvc:UsuarioService, private usuSvc:UsuarioService) { }
 
   ngOnInit() {
+    this.idUser = localStorage.getItem('id');
     this.idcurso = JSON.parse(localStorage.getItem('cursoe')!);
-
-    this.ingresa.idalumno=this.idcurso[0].idalumno;
-    this.ingresa.idcurso=this.idcurso[0].idalumno;
+    // console.log(this.idcurso[0])
+    this.ingresa.idalumno=this.idUser;
+    this.ingresa.idcurso=this.idcurso[0].idCurso;
+    // console.log(this.ingresa);
     this.obtenerImg();
   }
 
   //obtener datos imagen
   obtenerImg(){
 
-    this.idUser = localStorage.getItem('id');
+
     this.UsuarioSvc.usuarioData(this.idUser).subscribe(res=>{
 
         this.image = res;
