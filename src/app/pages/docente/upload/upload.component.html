@@ -67,7 +67,7 @@
                   <tbody *ngIf="alumnosData">
                     <!-- <td><div class="images-list" #imagesList ></div></td> -->
                     <tr *ngFor="let alumno of alumnosData; let i = index" [attr.data-index]="i">
-                      <td>i</td>
+                      <td>{{i}}</td>
                       <td><img class="imagen"  [src]="urls +'/'+ alumno.Foto"></td>
                       <td>{{alumno.Nombre}}</td>
                       <td>{{alumno.Apellido}}</td>
