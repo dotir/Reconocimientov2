@@ -22,10 +22,12 @@ export class DeteccionComponent implements OnInit {
   usuario={
     password:''
   }
+  idcurso:any;
 
-  constructor(private UsuarioSvc:UsuarioService) { }
+  constructor(private UsuarioSvc:UsuarioService, private usuSvc:UsuarioService) { }
 
   ngOnInit() {
+    this.idcurso = JSON.parse(localStorage.getItem('cursoe')!);
     this.obtenerImg();
   }
 
@@ -57,10 +59,14 @@ export class DeteccionComponent implements OnInit {
       title: 'Ingreso correcto',
       text: 'Ingreso correctamente a la evaluacion'
     }).then(() => {
-      localStorage.removeItem('cursoe');
-      localStorage.removeItem('id');
-      localStorage.removeItem('token');
-      location.href = '#/home';
+      this.usuSvc.insertaringresantes(this.idcurso).subscribe(()=>{
+        console.log('inserta correctamente');
+        localStorage.removeItem('cursoe');
+        localStorage.removeItem('id');
+        localStorage.removeItem('token');
+        location.href = '#/home';
+      })
+
 
     })
   }
