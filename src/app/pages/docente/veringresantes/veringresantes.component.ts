@@ -42,4 +42,12 @@ export class VeringresantesComponent implements OnInit {
       Swal.fire("Ocurrio un error");
     })
   }
+
+  estadoxcorrecto(ingresante:any){
+    this.ususv.estadoingresocorrecto(ingresante,this.cursosid.idCurso).subscribe(()=>{
+      Swal.fire("Se cambio estado correctamente");
+    },(err)=>{
+      Swal.fire("Ocurrio un error");
+    })
+  }
 }

@@ -71,5 +71,9 @@ export class UsuarioService {
   estadoingresoporclave(idingresante:any,idcurso:any){
     return this.http.get(`${URL}/ingresantes/estadoclave/${idingresante}/${idcurso}`);
   }
+
+  estadoingresocorrecto(idingresante:any,idcurso:any){
+    return this.http.get(`${URL}/ingresantes/estadocorrecto/${idingresante}/${idcurso}`);
+  }
 }
 
