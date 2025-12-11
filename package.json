@@ -1,6 +1,10 @@
 {
   "name": "reco-amy-irving",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
