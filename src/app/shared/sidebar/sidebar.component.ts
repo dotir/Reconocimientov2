@@ -33,6 +33,9 @@ export class SidebarComponent implements OnInit {
   goRAlumno(){
     this.router.navigate(['upload']);
   }
+  goRegistroAlumno(){
+    this.router.navigate(['registroalumno']);
+  }
   godashbord(i:any){
     localStorage.removeItem('curso');
     localStorage.setItem('curso',this.cursos[i].Nombre);

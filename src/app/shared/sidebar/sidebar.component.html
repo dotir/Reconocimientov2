@@ -29,6 +29,10 @@
                             <i class="fa fa-list-alt" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Registro Alumno</span></a>
                     </li>
                     <li >
+                        <a class="d-flex nav-link px-0 align-middle text-white" (click)="goRegistroAlumno()" *ngIf="varaalumno">
+                            <i class="fa fa-user-plus" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Nuevo Alumno</span></a>
+                    </li>
+                    <li >
                         <a class=" d-flex nav-link px-0 align-middle text-white" (click)="veringresantes()" *ngIf="varaalumno">
                             <i class="fa fa-flag-checkered" style="margin-top: 10px;margin-right: 10px;"></i> <span class="fs-5 d-none d-sm-inline">Ingresantes</span></a>
                     </li>
