@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { string } from '@tensorflow/tfjs-core';
 import { environment } from 'src/environments/environment';
@@ -21,8 +22,14 @@ export class UsuarioService {
     return this.http.get(`${URL}/imagen/${id}`)
   }
 
+  // Login por POST: la clave viaja en el cuerpo, no en la URL (no queda en logs/historial).
+  // Si el backend aun no tiene POST /auth (404), usa la ruta antigua solo como transicion.
   login(email:any,pass:any){
-    return this.http.get<docente>(`${URL}/auth/${email}/${pass}`);
+    return this.http.post<docente[]>(`${URL}/auth`, { Email: email, Password: pass }).pipe(
+      catchError((err: HttpErrorResponse) => err.status === 404
+        ? this.http.get<docente[]>(`${URL}/auth/${encodeURIComponent(email)}/${encodeURIComponent(pass)}`)
+        : throwError(() => err))
+    );
   }
 
   registroDocente(docente:any){

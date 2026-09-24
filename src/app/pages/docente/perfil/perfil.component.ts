@@ -22,10 +22,19 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit(): void {
     this.idocente=JSON.parse(localStorage.getItem('id')!);
-    this.pefdocente=this.idocente;
+    // limpiar la clave que versiones anteriores guardaban en localStorage
+    if (this.idocente && 'Password' in this.idocente) {
+      delete this.idocente.Password;
+      localStorage.setItem('id', JSON.stringify(this.idocente));
+    }
+    // Password vacio = el backend mantiene la clave actual
+    this.pefdocente={ ...this.idocente, Password: '' };
   }
   Actualizar(){
     this.usuarioSvc.actualizarDocente(this.idocente.idDocente,this.pefdocente).subscribe(()=>{
+      const { Password, ...datos } = this.pefdocente;
+      localStorage.setItem('id', JSON.stringify(datos));
+      this.pefdocente.Password='';
       sweet.fire({
         title: 'Update',
         text: 'Actualizo correctamente'
