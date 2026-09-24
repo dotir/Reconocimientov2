@@ -49,7 +49,9 @@ export class LoginComponent implements OnInit {
             'Has click para continuar!',
             'success'
           ).then(() => {
-            let ida = JSON.stringify(this.usuarios[0]);
+            // nunca guardar la clave en localStorage
+            const { Password, ...docente } = this.usuarios[0];
+            let ida = JSON.stringify(docente);
             localStorage.setItem('id', ida);
             this.router.navigate(['menu']);
           })
